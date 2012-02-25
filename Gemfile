@@ -15,13 +15,26 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
+group :development, :test do
+  gem 'rspec-rails', '2.8.1'
   gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development do
+  gem 'faker'
+  gem 'rb-inotify'
+  gem 'libnotify'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :test do
+  gem 'capybara', '1.1.2'
+  gem 'launchy', '2.0.5'
+  gem 'factory_girl_rails', '1.7.0'
 
+  # because newer version of guard is not working properly, we need to specify
+  # concrete versions of each gem
+  gem 'guard', '0.8.8'
+  gem 'spork', '~> 1.0rc'
+  gem 'guard-rspec', '0.5.8'
+  gem 'guard-spork', '0.3.2'
+end
