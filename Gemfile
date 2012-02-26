@@ -5,11 +5,12 @@ gem 'mysql2'
 gem 'capistrano'
 gem 'therubyracer'
 gem 'execjs'
-gem 'gravatar_image_tag'
+gem 'gravatar_image_tag', '1.0.0'
 gem 'friendly_id', '~> 4.0.0.beta14'
 gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'geocoder'
+gem 'geocoder', '1.1.1'
+gem 'inherited_resources', '1.2.2'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
@@ -21,7 +22,7 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.8.1'
   gem 'ruby-debug19', :require => 'ruby-debug'
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.5'
 end
 
 group :development do
