@@ -24,6 +24,7 @@ group :development do
   gem 'faker'
   gem 'rb-inotify'
   gem 'libnotify'
+  gem 'ruby-prof'
 end
 
 group :test do
