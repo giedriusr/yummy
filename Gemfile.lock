@@ -71,6 +71,7 @@ GEM
     friendly_id (4.0.0.beta14)
     geocoder (1.1.1)
     gravatar_image_tag (1.0.0)
+    growl (1.0.3)
     guard (0.8.8)
       thor (~> 0.14.6)
     guard-rspec (0.5.8)
@@ -204,6 +205,7 @@ DEPENDENCIES
   friendly_id (~> 4.0.0.beta14)
   geocoder
   gravatar_image_tag
+  growl
   guard (= 0.8.8)
   guard-rspec (= 0.5.8)
   guard-spork (= 0.3.2)
