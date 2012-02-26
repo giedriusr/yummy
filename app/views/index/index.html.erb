@@ -1,12 +1,12 @@
 <h1>homepage</h1>
 
-Here suppose to be search form where customers can enter their search details,
-what they want and where they live
-
 <br />
-
 <%= form_tag(search_results_path, :method => :get) do -%>
-  <%= search_field_tag 'address', nil, :class => 'long', :placeholder => 'Where are you? (i.e. Kallithea Greece or Athens Greece' %><br />
-  <%= search_field_tag 'wish', nil, :class => 'long', :placeholder => 'What would you like? (i.e. pizza, salads, cola)' %><br /><br />
-  <%= submit_tag 'Search', :name => nil %>
+	<label>Where are you?</label>
+	<%= search_field_tag 'address', nil, :class => 'span6', :placeholder => 'i.e. Kalithea Greece or Athens Greece' %>
+	<label>What would you like?</label>
+	<%= search_field_tag 'wish', nil, :class => 'span6', :placeholder => 'i.e. pizza, salads, cola' %>
+  	<br />
+  	<br />
+	<%= submit_tag 'Search', :class => 'btn btn-primary btn-large', :name => nil %>
 <% end -%>
