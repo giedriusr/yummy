@@ -5,7 +5,8 @@ what they want and where they live
 
 <br />
 
-<input type="text" value="" placeholder="Where are you?" name="addr" />
-<input type="text" value="" placeholder="What would you like?" name="q" />
-<br />
-<input type="submit" value="Search" />
+<%= form_tag('/results', :method => :get) do -%>
+  <%= search_field_tag 'address', nil, :placeholder => 'Where are you?' %><br />
+  <%= search_field_tag 'wish', nil, :placeholder => 'What would you like?' %><br /><br />
+  <%= submit_tag 'Search' %>
+<% end -%>

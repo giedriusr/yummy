@@ -4,4 +4,5 @@ class Item < ActiveRecord::Base
 
   has_many :ingredient_categorization
   has_many :ingredients, :through => :ingredient_categorization
+
 end

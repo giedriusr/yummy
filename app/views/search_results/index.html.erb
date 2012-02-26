@@ -1,0 +1,7 @@
+We are searching for: <%= @wish %> and you are located in <%= @address %>...
+<br /><br />
+
+<strong>We found</strong><br />
+<% @items.each_with_index do |item, key| %>
+  <%= key %>. <%= item.name %><br />
+<% end %>
