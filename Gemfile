@@ -8,6 +8,7 @@ gem 'execjs'
 gem 'gravatar_image_tag'
 gem 'friendly_id', '~> 4.0.0.beta14'
 gem 'jquery-rails'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -6,6 +6,8 @@ ActiveRecord::Base.connection.execute("TRUNCATE `items`")
 ActiveRecord::Base.connection.execute("TRUNCATE `categorizations`")
 ActiveRecord::Base.connection.execute("TRUNCATE `ingredients`")
 ActiveRecord::Base.connection.execute("TRUNCATE `ingredient_categorizations`")
+ActiveRecord::Base.connection.execute("TRUNCATE `customers`")
+ActiveRecord::Base.connection.execute("TRUNCATE `customer_delivery_addresses`")
 
 # seeding with dummy data
 Provider.create([
@@ -43,4 +45,16 @@ Categorization.create([
 Ingredient.create([
   { name: 'chilly'},
   { name: 'spicy'}
+])
+
+Customer.create([
+  { email: 'giedrius.rim@gmail.com', first_name: 'Giedrius', last_name: 'Rimkus', phone: '1234321'},
+  { email: 'info@giedriusr.lt', first_name: 'Giedriukas', last_name: 'Rimkiukas', phone: '0987632'},
+  { email: 'diusha13@gmail.com', first_name: 'Andreas', last_name: 'Taranuta', phone: '4234345'}
+])
+
+CustomerDeliveryAddress.create([
+  { customer_id: 1, country_code: 'GR', address: 'Saripoulou 10-8', city: 'Athens'},
+  { customer_id: 1, country_code: 'GR', address: 'Saripoulou 10-8', city: 'Athens'},
+  { customer_id: 2, country_code: 'GR', address: 'Faliro', city: 'Athens'}
 ])

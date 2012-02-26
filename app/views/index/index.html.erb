@@ -5,8 +5,8 @@ what they want and where they live
 
 <br />
 
-<%= form_tag('/results', :method => :get) do -%>
+<%= form_tag(search_results_path, :method => :get) do -%>
   <%= search_field_tag 'address', nil, :placeholder => 'Where are you?' %><br />
   <%= search_field_tag 'wish', nil, :placeholder => 'What would you like?' %><br /><br />
-  <%= submit_tag 'Search' %>
+  <%= submit_tag 'Search', :name => nil %>
 <% end -%>
