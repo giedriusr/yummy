@@ -19,9 +19,9 @@ Provider.create([
 ])
 
 Office.create([
-  { provider_id: 1, name: 'Domino Nea smyrni', address: 'nea smyrni', city: 'Athens', country_code: 'GR', email: 'neasmyrnidomino@email.gr'},
-  { provider_id: 1, name: 'Domino Kallithea', address: 'kallithea', city: 'Athens', country_code: 'GR', email: 'kallitheadomino@email.gr'},
-  { provider_id: 2, name: 'PizzaHat Kallithea', address: 'Pireauas', city: 'Piraeus', country_code: 'GR', email: 'pirpizza@email.gr'}
+  { provider_id: 1, name: 'Domino Nea smyrni', address: 'nea smyrni', city: 'Athens', country_code: 'GR', email: 'neasmyrnidomino@email.gr', phone: 123441232},
+  { provider_id: 1, name: 'Domino Kallithea', address: 'kallithea', city: 'Athens', country_code: 'GR', email: 'kallitheadomino@email.gr', phone: 238472983},
+  { provider_id: 2, name: 'PizzaHat Kallithea', address: 'Pireauas', city: 'Piraeus', country_code: 'GR', email: 'pirpizza@email.gr', phone: 238472983}
 ])
 
 Menu.create([
@@ -29,22 +29,33 @@ Menu.create([
   { provider_id: 1, name: 'Drinks'},
   { provider_id: 2, name: 'Salads'},
   { provider_id: 2, name: 'Meals'},
-  { provider_id: 3, name: 'Salads'}
+  { provider_id: 3, name: 'Salads'},
+  { provider_id: 3, name: 'Pizzas'},
+  { provider_id: 1, name: 'Meals'}
 ])
 
 Item.create([
-  { name: 'Country salads', price: 6.5, description: 'greek traditional salads'},
-  { name: 'Coca cola', price: 3.5, description: 'coca cola drink'}
+  { name: 'Xoriatiki salads', price: 6.5, description: 'greek traditional salads'},
+  { name: 'Coca cola', price: 3.5, description: 'coca cola drink'},
+  { name: 'Pizza', price: 8.5, description: 'coca cola drink'}
 ])
 
 Categorization.create([
   { menu_id: 1, item_id: 1},
-  { menu_id: 2, item_id: 2}
+  { menu_id: 2, item_id: 2},
+  { menu_id: 6, item_id: 3},
+  { menu_id: 7, item_id: 3}
 ])
 
 Ingredient.create([
   { name: 'chilly'},
   { name: 'spicy'}
+])
+
+IngredientCategorization.create([
+  { ingredient_id: 1, item_id: 1},
+  { ingredient_id: 2, item_id: 2},
+  { ingredient_id: 1, item_id: 3}
 ])
 
 Customer.create([

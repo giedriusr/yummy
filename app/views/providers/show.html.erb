@@ -1,0 +1,24 @@
+<h2>Menu</h2>
+<% @provider.menus.each do |menu| %>
+  <h3><%= menu.name %></h3>
+  <% menu.items.each do |item| %>
+    <%= item.name %> - <strong><%= item.price %> eur</strong><br />
+    <% item.ingredients.each do |ingredient| %>
+      <%= ingredient.name %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<br /><br /><br />
+<h2>Offices</h2>
+<% @provider.offices.each do |office| %>
+  <strong><%= office.name %></strong><br />
+  <%= office.description %><br />
+  <%= office.address %><br />
+  <%= office.city %><br />
+  <%= office.country_code %><br />
+  <%= office.phone %><br />
+  <%= office.email %><br />
+  <br />
+  <hr />
+<% end %>

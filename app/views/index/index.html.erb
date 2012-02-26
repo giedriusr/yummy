@@ -6,7 +6,7 @@ what they want and where they live
 <br />
 
 <%= form_tag(search_results_path, :method => :get) do -%>
-  <%= search_field_tag 'address', nil, :placeholder => 'Where are you?' %><br />
-  <%= search_field_tag 'wish', nil, :placeholder => 'What would you like?' %><br /><br />
+  <%= search_field_tag 'address', nil, :class => 'long', :placeholder => 'Where are you? (i.e. Kallithea Greece or Athens Greece' %><br />
+  <%= search_field_tag 'wish', nil, :class => 'long', :placeholder => 'What would you like? (i.e. pizza, salads, cola)' %><br /><br />
   <%= submit_tag 'Search', :name => nil %>
 <% end -%>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226123139) do
+ActiveRecord::Schema.define(:version => 20120226142629) do
 
   create_table "categorizations", :force => true do |t|
     t.integer  "menu_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(:version => 20120226123139) do
     t.string   "address"
     t.string   "city"
     t.string   "country_code"
-    t.string   "longitude"
-    t.string   "latitude"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
