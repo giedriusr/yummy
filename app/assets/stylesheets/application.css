@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
 */
+body {
+  padding: 60px;
+}
 #flash {
   display: block;
 }
@@ -32,3 +35,4 @@
 .long {
   width: 400px;
 }
+
