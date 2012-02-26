@@ -25,10 +25,10 @@ ActiveRecord::Schema.define(:version => 20120226142629) do
     t.string   "address"
     t.string   "city"
     t.string   "country_code"
-    t.float    "longitude"
-    t.float    "latitude"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "customers", :force => true do |t|
@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(:version => 20120226142629) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
-    t.decimal  "price",       :precision => 10, :scale => 0
+    t.decimal  "price"
     t.string   "description"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "menus", :force => true do |t|
@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(:version => 20120226142629) do
     t.string   "address"
     t.string   "city"
     t.string   "country_code"
-    t.decimal  "longitude",    :precision => 10, :scale => 0
-    t.decimal  "latitude",     :precision => 10, :scale => 0
+    t.decimal  "longitude"
+    t.decimal  "latitude"
     t.string   "phone"
     t.string   "email"
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "provider_id"
   end
 

@@ -20,13 +20,14 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.8.1'
   gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'sqlite3'
 end
 
 group :development do
   gem 'faker'
-  gem 'rb-inotify'
   gem 'libnotify'
   gem 'ruby-prof'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
 end
 
 group :test do
