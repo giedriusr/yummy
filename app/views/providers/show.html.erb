@@ -9,16 +9,31 @@
   <% end %>
 <% end %>
 
-<br /><br /><br />
+<br />
+<br />
+<br />
+
 <h2>Offices</h2>
 <% @provider.offices.each do |office| %>
-  <strong><%= office.name %></strong><br />
-  <%= office.description %><br />
-  <%= office.address %><br />
-  <%= office.city %><br />
-  <%= office.country_code %><br />
-  <%= office.phone %><br />
-  <%= office.email %><br />
-  <br />
+  <section itemscope itemtype="http://schema.org/Restaurant">
+     <strong itemprop="name"><%= office.name %></strong>
+     <span><%= office.description %></span>
+
+     <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+       <span itemprop="streetAddress"><%= office.address %></span>
+       <span itemprop="addressLocality"><%= office.city %></span>,
+       <span itemprop="postalCode">Postal Code*</span>,
+       <span itemprop="addressRegion">Region*</span>,
+       <%= office.country_code %>
+     </address>
+     Email: <span itemprop="email"><%= office.email %></span><br>
+     Phone: <span itemprop="telephone"><%= office.phone %></span>
+
+     <br />
+     Hours*:
+		<meta itemprop="openingHours" content="Mo-Sa 11:00-14:30">Mon-Sat 11am - 2:30pm,
+		<meta itemprop="openingHours" content="Mo-Th 17:00-21:30">Mon-Thu 5pm - 9:30pm,
+		<meta itemprop="openingHours" content="Fr-Sa 17:00-22:00">Fri-Sat 5pm - 10:00pm,
+  </section>
   <hr />
 <% end %>
