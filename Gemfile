@@ -27,8 +27,8 @@ group :development do
   gem 'faker'
   gem 'libnotify'
   gem 'ruby-prof'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem 'growl', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'rb-fsevent'
+  gem 'growl'
 end
 
 group :test do
