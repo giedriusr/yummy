@@ -8,14 +8,15 @@ ActiveRecord::Base.connection.execute("TRUNCATE `ingredients`")
 ActiveRecord::Base.connection.execute("TRUNCATE `ingredient_categorizations`")
 ActiveRecord::Base.connection.execute("TRUNCATE `customers`")
 ActiveRecord::Base.connection.execute("TRUNCATE `customer_delivery_addresses`")
+ActiveRecord::Base.connection.execute("TRUNCATE `employees`")
 
 # seeding with dummy data
 Provider.create([
-  { name: 'Domino', user_name: 'domino', password: '123456', phone: '123456789', email: 'domino@email.gr'},
-  { name: 'Pizza Hat', user_name: 'pizzahat', password: '123321', phone: '1364332344', email: 'pizzahat@email.gr'},
-  { name: 'La Pasteria', user_name: 'lapasteria', password: '123asw', phone: '12345345', email: 'lapasteria@email.gr'},
-  { name: 'Grill Academy', user_name: 'grillac', password: '123sde', phone: '12345643', email: 'grillac@email.gr'},
-  { name: 'Loukoumades', user_name: 'loukoma', password: '123vbg', phone: '123433565', email: 'loukoma@email.gr'}
+  { name: 'Domino', password: '123123', phone: '12356787', email: 'domino@email.gr'},
+  { name: 'Pizza Hat', password: '123321', phone: '1364332344', email: 'pizzahat@email.gr'},
+  { name: 'La Pasteria', password: '123asw', phone: '12345345', email: 'lapasteria@email.gr'},
+  { name: 'Grill Academy', password: '123sde', phone: '12345643', email: 'grillac@email.gr'},
+  { name: 'Loukoumades', password: '123vbg', phone: '123433565', email: 'loukoma@email.gr'}
 ])
 
 Office.create([
@@ -68,4 +69,8 @@ CustomerDeliveryAddress.create([
   { customer_id: 1, country_code: 'GR', address: 'Saripoulou 10-8', city: 'Athens'},
   { customer_id: 1, country_code: 'GR', address: 'Saripoulou 10-8', city: 'Athens'},
   { customer_id: 2, country_code: 'GR', address: 'Faliro', city: 'Athens'}
+])
+
+Employee.create([
+  { first_name: 'Giedrius', last_name: 'Rimkus', email: 'giedrius.rim@gmail.com', password: '123'}
 ])

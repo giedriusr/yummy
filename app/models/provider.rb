@@ -1,6 +1,9 @@
 class Provider < ActiveRecord::Base
+  has_secure_password
+
+  attr_accessible :email, :password, :name, :phone
+
   validates :name, :presence => true, :length => { :maximum => 50 }
-  validates :user_name, :presence => true
 
   validates :password, :presence => true,
                        :confirmation => true,

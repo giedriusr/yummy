@@ -6,7 +6,6 @@ describe Provider do
     @attr = {
       :email => "user@example.com",
       :name => 'name',
-      :user_name => 'bar',
       :password => "foobar",
       :phone => 1234567890,
     }
