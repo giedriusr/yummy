@@ -1,18 +1,32 @@
 # truncating all tables
-ActiveRecord::Base.connection.execute("TRUNCATE `providers`")
-ActiveRecord::Base.connection.execute("TRUNCATE `offices`")
-ActiveRecord::Base.connection.execute("TRUNCATE `menus`")
-ActiveRecord::Base.connection.execute("TRUNCATE `items`")
-ActiveRecord::Base.connection.execute("TRUNCATE `categorizations`")
-ActiveRecord::Base.connection.execute("TRUNCATE `ingredients`")
-ActiveRecord::Base.connection.execute("TRUNCATE `ingredient_categorizations`")
-ActiveRecord::Base.connection.execute("TRUNCATE `customers`")
-ActiveRecord::Base.connection.execute("TRUNCATE `customer_delivery_addresses`")
-ActiveRecord::Base.connection.execute("TRUNCATE `employees`")
+
+def truncate(table)
+  config = ActiveRecord::Base.configurations[Rails.env]
+  ActiveRecord::Base.establish_connection
+  case config["adapter"]
+    when "mysql2"
+      ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
+    when "sqlite", "sqlite3"
+      ActiveRecord::Base.connection.execute("DELETE FROM #{table}")
+      ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence where name='#{table}'")
+      ActiveRecord::Base.connection.execute("VACUUM")
+  end
+end
+
+truncate('providers')
+truncate('offices')
+truncate('menus')
+truncate('items')
+truncate('categorizations')
+truncate('ingredients')
+truncate('ingredient_categorizations')
+truncate('customers')
+truncate('customer_delivery_addresses')
+truncate('employees')
 
 # seeding with dummy data
 Provider.create([
-  { name: 'Domino', password: '123123', phone: '12356787', email: 'domino@email.gr'},
+  { name: 'Domino', password: '123456', phone: '3098765412', email: 'domino@fakeemail.gr'},
   { name: 'Pizza Hat', password: '123321', phone: '1364332344', email: 'pizzahat@email.gr'},
   { name: 'La Pasteria', password: '123asw', phone: '12345345', email: 'lapasteria@email.gr'},
   { name: 'Grill Academy', password: '123sde', phone: '12345643', email: 'grillac@email.gr'},
@@ -60,9 +74,9 @@ IngredientCategorization.create([
 ])
 
 Customer.create([
-  { email: 'giedrius.rim@gmail.com', first_name: 'Giedrius', last_name: 'Rimkus', phone: '1234321'},
-  { email: 'info@giedriusr.lt', first_name: 'Giedriukas', last_name: 'Rimkiukas', phone: '0987632'},
-  { email: 'diusha13@gmail.com', first_name: 'Andreas', last_name: 'Taranuta', phone: '4234345'}
+  { email: 'customer@fakeemail.com', password: '123456', first_name: 'Giedrius', last_name: 'Rimkus', phone: '1234321'},
+  { email: 'info@giedriusr.lt', password: '123456', first_name: 'Giedriukas', last_name: 'Rimkiukas', phone: '0987632'},
+  { email: 'diusha13@gmail.com', password: '123456', first_name: 'Andreas', last_name: 'Taranuta', phone: '4234345'}
 ])
 
 CustomerDeliveryAddress.create([
@@ -72,5 +86,6 @@ CustomerDeliveryAddress.create([
 ])
 
 Employee.create([
-  { first_name: 'Giedrius', last_name: 'Rimkus', email: 'giedrius.rim@gmail.com', password: '123'}
+  { first_name: 'Employee', last_name: 'Employeeee', email: 'employee@fakeemail.com', password: '123456'},
+  { first_name: 'Admin', last_name: 'Demo', email: 'employee2@fakeemail.com', password: '123456'}
 ])
