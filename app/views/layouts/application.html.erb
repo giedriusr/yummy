@@ -29,6 +29,13 @@
       <% end %>
     </header>
 
+    <br /><br />
+    <% if @order %>
+      <div id="shopping_cart">
+        <%= render :partial => 'order/order' %>
+      </div>
+    <% end %>
+
     <%= yield %>
 
     <br /><br />

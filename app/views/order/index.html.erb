@@ -1,0 +1,5 @@
+<% if @order.order_items.empty? %>
+  <strong>Your cart is empty</strong>
+<% else %>
+  <%= render :partial => 'order/item' %>
+<% end %>

@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  before_filter :initialize_order
   def index
     @providers = Provider.all
   end

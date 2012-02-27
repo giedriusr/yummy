@@ -2,10 +2,13 @@
 <% @provider.menus.each do |menu| %>
   <h3><%= menu.name %></h3>
   <% menu.items.each do |item| %>
-    <%= item.name %> - <strong><%= item.price %> eur</strong><br />
-    <% item.ingredients.each do |ingredient| %>
-      <%= ingredient.name %>
-    <% end %>
+    <%= item.name %> - <strong><%= number_to_currency item.price %></strong>
+    <%= link_to 'add', "/cart/add/#{item.id}", :method => :post, :id => item.id %>
+    <%= link_to 'del', "/cart/remove/#{item.id}", :method => :post, :id => item.id %>
+    <br />
+    <%# item.ingredients.each do |ingredient| %>
+      <%#= ingredient.name %>
+    <%#end %>
   <% end %>
 <% end %>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120227001915) do
+ActiveRecord::Schema.define(:version => 20120227162345) do
 
   create_table "categorizations", :force => true do |t|
     t.integer  "menu_id"
@@ -59,16 +59,17 @@ ActiveRecord::Schema.define(:version => 20120227001915) do
 
   create_table "ingredients", :force => true do |t|
     t.string   "name"
+    t.float    "price"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "items", :force => true do |t|
     t.string   "name"
-    t.decimal  "price",       :precision => 10, :scale => 0
+    t.float    "price"
     t.string   "description"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "menus", :force => true do |t|
@@ -92,6 +93,32 @@ ActiveRecord::Schema.define(:version => 20120227001915) do
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
     t.integer  "provider_id"
+  end
+
+  create_table "order_item_ingredients", :force => true do |t|
+    t.integer  "order_item_id"
+    t.integer  "ingredient_id"
+    t.float    "price"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "order_items", :force => true do |t|
+    t.integer  "order_id"
+    t.integer  "item_id"
+    t.float    "price"
+    t.integer  "quantity"
+    t.string   "comment"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "orders", :force => true do |t|
+    t.integer  "customer_id"
+    t.integer  "delivery_address_id"
+    t.string   "status"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "providers", :force => true do |t|
