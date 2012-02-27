@@ -12,23 +12,9 @@
  *= require_tree .
 */
 body {
-  padding: 60px;
+  padding: 60px 0;
 }
-#flash {
-  display: block;
-}
-#flash_notice {
-  background-color: green;
-  color: white;
-  margin: 20px;
-  padding: 10px;
-}
-#flash_alert {
-  background-color: red;
-  color: white;
-  margin: 20px;
-  padding: 10px;
-}
+
 .error_messages li {
   color: red;
 }

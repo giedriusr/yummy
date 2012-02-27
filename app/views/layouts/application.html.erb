@@ -1,47 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Foodsearch</title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-  </head>
-  <body>
-    <div id="flash">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-    </div>
+	<head>
+		<title>Foodsearch</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body class="container">
+		<div id="flash">
+			<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, id: "flash_#{name}" %>
+			<% end %>
+		</div>
 
-    <header>
-      <%= link_to 'Homepage', root_path %>
-      <% if current_employee %>
-        | <%= link_to 'Admin', admin_path %>
-      <% end %>
+		<header id="header">
+			<%= link_to 'Homepage', root_path %>
+			<% if current_employee %>
+			| <%= link_to 'Admin', admin_path %>
+			<% end %>
 
-      <br /><br />
-      <% if current_user %>
-        Logged in as <%= current_user.email %>.
-        <%= link_to "Log Out", logout_path %>
-      <% else %>
-        <%= link_to "Sign Up", signup_path %> or
-        <%= link_to "Log In", login_path %>
-      <% end %>
-    </header>
+			<br />
+			<br />
+			<% if current_user %>
+			Logged in as <%= current_user.email %>.
+			<%= link_to "Log Out", logout_path %>
+			<% else %>
+			<%= link_to "Sign Up", signup_path %> or
+			<%= link_to "Log In", login_path %>
+			<% end %>
+		</header>
 
-    <br /><br />
-    <% if @order %>
-      <div id="shopping_cart">
-        <%= render :partial => 'order/order' %>
-      </div>
-    <% end %>
+		<div class="row">
+			<div class="span8">
+				<%= yield %>
+			</div>
 
-    <%= yield %>
-
-    <br /><br />
-    <footer>
-      Order food online. &copy; <%= Time.now.strftime('%Y') %>
-    </footer>
-
+			<div class="span4">
+				<% if @order %>
+				  <div id="shopping_cart">
+					<%= render :partial => 'order/order' %>
+				  </div>
+				<% end %>
+			</div>
+    	</div>
+		
+		<footer id="footer">
+			&copy; <%= Time.now.strftime('%Y') %> Order food online. All rights and lefts reserved.
+		</footer>
   </body>
 </html>
