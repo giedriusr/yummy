@@ -11,6 +11,8 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'geocoder', '1.1.1'
 gem 'inherited_resources', '1.2.2'
+gem 'redis', '2.2.2'
+gem 'yajl-ruby'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'

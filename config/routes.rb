@@ -7,6 +7,7 @@ Foodsearch::Application.routes.draw do
   namespace :admin do
     resources :sessions, :only => [:new, :create, :destroy]
     resources :providers
+    resources :translations, :only => [:index, :create]
   end
 
   namespace :extranet do

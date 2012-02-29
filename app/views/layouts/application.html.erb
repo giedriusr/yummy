@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Foodsearch</title>
+		<title>Order Food Online</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
@@ -14,18 +14,21 @@
 		</div>
 
 		<header id="header">
-			<%= link_to 'Homepage', root_path %>
+			<%= link_to t('Homepage'), root_path %>
 			<% if current_employee %>
-			| <%= link_to 'Admin', admin_path %>
+			| <%= link_to t('Admin'), admin_path %>
 			<% end %>
 
 			<br />
+			Languages:
+			<%= link_to t('English'), '?locale=en' %> |
+			<%= link_to t('Greek'), '?locale=el' %>
 			<br />
 			<% if current_user %>
-			Logged in as <%= current_user.email %>.
-			<%= link_to "Log Out", logout_path %>
+				Logged in as <%= current_user.email %>.
+				<%= link_to t('Log Out'), logout_path %>
 			<% else %>
-			<%= link_to "Sign Up", signup_path %> or
+				<%= link_to t('Sign Up'), signup_path %> or
 
 			<div id="loginBox" class="modal fade">
 				<%= form_tag sessions_path do %>
@@ -36,18 +39,18 @@
 					<div class="modal-body">
 							<%= label_tag :email %>
 							<%= text_field_tag :email, params[:email] %>
-							
+
 							<%= label_tag :password %>
 							<%= password_field_tag :password %>
-						
+
 					</div>
 					<div class="modal-footer">
-						<%= submit_tag "Log In", :class => 'btn btn-primary' %>
+						<%= submit_tag t('Log In'), :class => 'btn btn-primary' %>
 						<a href="#" class="btn" data-dismiss="modal">Close</a>
 					</div>
 				<% end %>
 			</div>
-			<a href="#loginBox" data-toggle="modal">Log In</a>
+			<a href="#loginBox" data-toggle="modal"><%= t 'Log In' %></a>
 			<% end %>
 		</header>
 
@@ -64,9 +67,9 @@
 				<% end %>
 			</div>
     	</div>
-		
+
 		<footer id="footer">
-			&copy; <%= Time.now.strftime('%Y') %> Order food online. All rights and lefts reserved.
+			&copy; <%= Time.now.strftime('%Y') %> <%= t 'Order food online. All rights and lefts reserved.' %>
 		</footer>
   </body>
 </html>
