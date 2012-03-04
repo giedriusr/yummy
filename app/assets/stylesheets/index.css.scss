@@ -20,7 +20,13 @@
 // Homepage Billboard (Hero Unit)
 #billboard {
 	padding: 60px 0;
-	background: #333;
+	background: #333; //url(https://s3.amazonaws.com/foodzie/site/landing/bkg-home.png) no-repeat center center;
+	background-size: cover;
+	webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/image/data/promo/cb_home1.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/image/data/promo/cb_home1.jpg', sizingMethod='scale')";
 	min-height: 200px;
 	margin: 0;
 	position: absolute;
