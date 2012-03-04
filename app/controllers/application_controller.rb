@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_history_path
-    session[:return_to] ||= request.uri
+    session[:return_to] ||= root_path
   end
 
   private
