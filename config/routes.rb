@@ -13,7 +13,7 @@ Foodsearch::Application.routes.draw do
 
   namespace :extranet do
     resources :sessions, :only => [:new, :create, :destroy]
-    resources :menus, :items, :ingredients
+    resources :menus, :items, :ingredients, :offices
   end
 
   get 'admin', to: 'admin/index#index'

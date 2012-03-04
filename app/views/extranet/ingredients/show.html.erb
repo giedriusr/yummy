@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @extranet_ingredient.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @extranet_ingredient.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_extranet_ingredient_path(@extranet_ingredient) %> |
+<%= link_to 'Back', extranet_ingredients_path %>

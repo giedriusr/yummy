@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @extranet_office.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @extranet_office.description %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @extranet_office.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @extranet_office.city %>
+</p>
+
+<p>
+  <b>Country code:</b>
+  <%= @extranet_office.country_code %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @extranet_office.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @extranet_office.latitude %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @extranet_office.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @extranet_office.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_extranet_office_path(@extranet_office) %> |
+<%= link_to 'Back', extranet_offices_path %>
