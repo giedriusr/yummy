@@ -1,0 +1,25 @@
+<%= form_for([:extranet, @extranet_ingredient]) do |f| %>
+  <% if @extranet_ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@extranet_ingredient.errors.count, "error") %> prohibited this extranet_ingredient from being saved:</h2>
+
+      <ul>
+      <% @extranet_ingredient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

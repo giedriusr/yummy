@@ -50,9 +50,9 @@ Menu.create([
 ])
 
 Item.create([
-  { name: 'Xoriatiki salads', price: 6.5, description: 'greek traditional salads'},
-  { name: 'Coca cola', price: 3.5, description: 'coca cola drink'},
-  { name: 'Pizza', price: 8.5, description: 'coca cola drink'}
+  { provider_id: 1, name: 'Xoriatiki salads', price: 6.5, description: 'greek traditional salads'},
+  { provider_id: 1, name: 'Coca cola', price: 3.5, description: 'coca cola drink'},
+  { provider_id: 1, name: 'Pizza', price: 8.5, description: 'coca cola drink'}
 ])
 
 Categorization.create([
@@ -63,8 +63,8 @@ Categorization.create([
 ])
 
 Ingredient.create([
-  { name: 'chilly'},
-  { name: 'spicy'}
+  { provider_id: 1, name: 'chilly'},
+  { provider_id: 1, name: 'spicy'}
 ])
 
 IngredientCategorization.create([

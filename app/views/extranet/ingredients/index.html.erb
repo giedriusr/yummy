@@ -1,0 +1,25 @@
+<h1>Listing extranet_ingredients</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @extranet_ingredients.each do |extranet_ingredient| %>
+  <tr>
+    <td><%= extranet_ingredient.name %></td>
+    <td><%= extranet_ingredient.price %></td>
+    <td><%= link_to 'Show', extranet_ingredient_path(extranet_ingredient) %></td>
+    <td><%= link_to 'Edit', edit_extranet_ingredient_path(extranet_ingredient) %></td>
+    <td><%= link_to 'Destroy', extranet_ingredient_path(extranet_ingredient), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ingredient', new_extranet_ingredient_path %>

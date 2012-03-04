@@ -1,0 +1,27 @@
+<h1>Listing extranet_items</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @extranet_items.each do |extranet_item| %>
+  <tr>
+    <td><%= extranet_item.name %></td>
+    <td><%= extranet_item.price %></td>
+    <td><%= extranet_item.description %></td>
+    <td><%= link_to 'Show', extranet_item_path(extranet_item) %></td>
+    <td><%= link_to 'Edit', edit_extranet_item_path(extranet_item) %></td>
+    <td><%= link_to 'Destroy', extranet_item_path(extranet_item), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_extranet_item_path %>
