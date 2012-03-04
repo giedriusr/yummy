@@ -6,7 +6,7 @@
 	<%= javascript_include_tag "application" %>
 	<%= csrf_meta_tags %>
 </head>
-<body class="container">
+<body>
 	<div id="flash">
 		<% flash.each do |name, msg| %>
 		<%= content_tag :div, t(msg), id: "flash_#{name}" %>
@@ -14,10 +14,6 @@
 	</div>
 
 	<%= render 'layouts/header' %>
-
-	<section id="billboard">
-		billboard
-	</section>
 
 	<section class="container">
 		<div class="row">
@@ -34,7 +30,7 @@
 		</div>
 	</section>
 
-	<footer id="footer">
+	<footer id="footer" class="container">
 		&copy; <%= Time.now.strftime('%Y') %> <%= t 'Order food online. All rights and lefts reserved.' %>
 	</footer>
 </body>

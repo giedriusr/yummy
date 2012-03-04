@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-// alerts
+// Alerts
 #flash_notice {
 	@extend .alert;
 	@extend .alert-success;
@@ -12,12 +12,30 @@
 
 .modal {
 	display: none;
-
 	form {
 		margin: 0;
 	}
 }
 
+// Homepage Billboard (Hero Unit)
+#billboard {
+	padding: 60px 0;
+	background: #333;
+	min-height: 200px;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+
+	* {
+		color: rgba(255,255,255, .85);
+	}
+
+	input[type="search"] {
+		padding: 10px;
+		margin-bottom: 20px;
+	}
+}
 
 // Page Elements
 #footer {
