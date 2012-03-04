@@ -27,13 +27,14 @@
 	left: 0;
 	right: 0;
 
-	* {
+	label, h1, h2, h3, div {
 		color: rgba(255,255,255, .85);
 	}
 
 	input[type="search"] {
 		padding: 10px;
 		margin-bottom: 20px;
+		font-size: $baseFontSize + 2;
 	}
 }
 
