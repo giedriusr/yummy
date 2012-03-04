@@ -1,75 +1,41 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Order Food Online</title>
-		<%= stylesheet_link_tag    "application", :media => "all" %>
-		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
-	</head>
-	<body class="container">
-		<div id="flash">
-			<% flash.each do |name, msg| %>
-			<%= content_tag :div, msg, id: "flash_#{name}" %>
-			<% end %>
-		</div>
+<head>
+	<title>Order Food Online</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="container">
+	<div id="flash">
+		<% flash.each do |name, msg| %>
+		<%= content_tag :div, t(msg), id: "flash_#{name}" %>
+		<% end %>
+	</div>
 
-		<header id="header">
-			<%= link_to t('Homepage'), root_path %>
-			<% if current_employee %>
-			| <%= link_to t('Admin'), admin_path %>
-			<% end %>
+	<%= render 'layouts/header' %>
 
-			<br />
-			Languages:
-			<%= link_to t('English'), '?locale=en' %> |
-			<%= link_to t('Greek'), '?locale=el' %>
-			<br />
-			<% if current_user %>
-				Logged in as <%= current_user.email %>.
-				<%= link_to t('Log Out'), logout_path %>
-			<% else %>
-				<%= link_to t('Sign Up'), signup_path %> or
+	<section id="billboard">
+		billboard
+	</section>
 
-			<div id="loginBox" class="modal fade">
-				<%= form_tag sessions_path do %>
-					<div class="modal-header">
-						<a class="close" data-dismiss="modal">×</a>
-						<h3>Log In</h3>
-					</div>
-					<div class="modal-body">
-							<%= label_tag :email %>
-							<%= text_field_tag :email, params[:email] %>
-
-							<%= label_tag :password %>
-							<%= password_field_tag :password %>
-
-					</div>
-					<div class="modal-footer">
-						<%= submit_tag t('Log In'), :class => 'btn btn-primary' %>
-						<a href="#" class="btn" data-dismiss="modal">Close</a>
-					</div>
-				<% end %>
-			</div>
-			<a href="#loginBox" data-toggle="modal"><%= t 'Log In' %></a>
-			<% end %>
-		</header>
-
+	<section class="container">
 		<div class="row">
 			<div class="span8">
 				<%= yield %>
 			</div>
-
 			<div class="span4">
 				<% if @order %>
-				  <div id="shopping_cart">
-					<%= render :partial => 'order/order' %>
-				  </div>
+				<div id="shopping_cart">
+					<%= render 'order/order' %>
+				</div>
 				<% end %>
 			</div>
-    	</div>
+		</div>
+	</section>
 
-		<footer id="footer">
-			&copy; <%= Time.now.strftime('%Y') %> <%= t 'Order food online. All rights and lefts reserved.' %>
-		</footer>
-  </body>
+	<footer id="footer">
+		&copy; <%= Time.now.strftime('%Y') %> <%= t 'Order food online. All rights and lefts reserved.' %>
+	</footer>
+</body>
 </html>

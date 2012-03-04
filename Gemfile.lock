@@ -14,6 +14,9 @@ GEM
       rack-cache (~> 1.1)
       rack-test (~> 0.6.1)
       sprockets (~> 2.1.2)
+    active_attr (0.4.1)
+      activemodel (~> 3.1)
+      activesupport (~> 3.1)
     activemodel (3.2.1)
       activesupport (= 3.2.1)
       builder (~> 3.0.0)
@@ -95,6 +98,8 @@ GEM
     json_pure (1.6.5)
     launchy (2.0.5)
       addressable (~> 2.2.6)
+    letter_opener (0.0.2)
+      launchy
     libnotify (0.5.9)
     libv8 (3.3.10.4)
     linecache19 (0.5.12)
@@ -203,6 +208,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_attr
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass (~> 2.0.1)
   capistrano
@@ -221,6 +227,7 @@ DEPENDENCIES
   inherited_resources (= 1.2.2)
   jquery-rails
   launchy (= 2.0.5)
+  letter_opener
   libnotify
   mysql2
   rails (= 3.2.1)

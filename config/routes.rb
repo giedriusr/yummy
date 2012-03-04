@@ -3,6 +3,7 @@ Foodsearch::Application.routes.draw do
   resources :customers
   resources :sessions
   resources :providers, :only => [:show, :index]
+  resources :customer_delivery_addresses
 
   namespace :admin do
     resources :sessions, :only => [:new, :create, :destroy]
@@ -29,6 +30,7 @@ Foodsearch::Application.routes.draw do
   match 'cart/add/:id', to: 'order#add'
   match 'cart/remove/:id', to: 'order#remove'
   match 'cart/clear', to: 'order#clear'
+  match 'cart/complete', to: 'order#complete', :as => 'cart_complete'
   get 'cart', to: 'order#index'
   # match matches any http method/verb, while get matches only http method/verb GET.
   root :to => 'index#index'

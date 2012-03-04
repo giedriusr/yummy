@@ -1,12 +1,20 @@
 <h1><%= t 'Welcome' %></h1>
 
 <br />
-<%= form_tag(search_results_path, :method => :get) do -%>
+<% if @search.errors.any? %>
+  <div class="error_messages">
+    <ul>
+      <% @search.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+  </div>
+<% end %>
+<%= form_tag(search_results_path, :method => :get) do %>
 	<label>Where are you?</label>
-	<%= search_field_tag 'address', nil, :class => 'span6', :placeholder => 'i.e. Kalithea Greece or Athens Greece' %>
+	<%= search_field_tag 'search[address]', @search.address, :class => 'span6', :placeholder => 'i.e. Kalithea Greece or Athens Greece' %>
 	<label>What would you like?</label>
-	<%= search_field_tag 'wish', nil, :class => 'span6', :placeholder => 'i.e. pizza, salads, cola' %>
+	<%= search_field_tag 'search[query]', @search.query, :class => 'span6', :placeholder => 'i.e. pizza, salads, cola' %>
   	<br />
   	<br />
 	<%= submit_tag 'Search', :class => 'btn btn-primary btn-large', :name => nil %>
-<% end -%>
+<% end %>

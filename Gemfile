@@ -13,6 +13,7 @@ gem 'geocoder', '1.1.1'
 gem 'inherited_resources', '1.2.2'
 gem 'redis', '2.2.2'
 gem 'yajl-ruby'
+gem 'active_attr'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'
@@ -33,6 +34,7 @@ group :development do
   gem 'ruby-prof'
   gem 'rb-fsevent'
   gem 'growl'
+  gem 'letter_opener'
 end
 
 group :test do

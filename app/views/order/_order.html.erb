@@ -2,6 +2,7 @@
 
 <%#= render :partial => 'order/item', :object => @order.order_items %>
 <p id="cart_total">Total: <%= number_to_currency @order.total %></p>
-<%= link_to 'View your shopping cart', cart_path %><br />
-<%= link_to 'Remove all items from the cart', cart_clear_path, :method => :post %>
+<p><%= link_to 'View your shopping cart', cart_path, :class => 'btn' %></p>
+<p><%= link_to 'Remove all items from the cart', cart_clear_path, :method => :post,
+:class => 'btn btn-warning' %></p>
 <br /><br />

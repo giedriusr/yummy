@@ -1,13 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_locale
+  before_filter :set_locale, :set_history_path
 
   def set_locale
     # available_locales = [:en, :el]
     session[:locale] = params[:locale] if params[:locale]
     session[:locale] = I18n.default_locale unless session[:locale]
     I18n.locale = session[:locale]
+  end
+
+  def set_history_path
+    session[:return_to] ||= request.uri
   end
 
   private

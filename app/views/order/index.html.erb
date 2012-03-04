@@ -2,4 +2,19 @@
   <strong>Your cart is empty</strong>
 <% else %>
   <%= render :partial => 'order/item' %>
+
+  <% if current_user %>
+    <% if current_user.customer_delivery_addresses.size == 0 %>
+      <%= link_to 'add delivery address', '#' %>
+    <% end %>
+  <% end %>
+
+  <% link_name = raw('<i class="icon-shopping-cart icon-white"></i> Order') %>
+  <% if (current_user) %>
+      <p align="right"><%= link_to link_name,
+  cart_complete_path, :class => 'btn btn-success btn-large', :method => :post %></p>
+  <% else %>
+      <p align="right"><%= link_to link_name,
+  cart_complete_path(:anchor => 'loginBox'), :class => 'btn btn-success btn-large', :'data-toggle' => 'modal' %></p>
+  <% end %>
 <% end %>
