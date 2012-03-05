@@ -1,24 +1,28 @@
 <section id="billboard">
   <div class="container">
-    <h1><%= t 'Welcome' %></h1>
 
-    <br />
-    <% if @search.errors.any? %>
-    <div class="error_messages">
-      <ul>
-        <% @search.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </div>
-      <% end %>
-      <%= form_tag(search_results_path, :method => :get) do %>
-      <label>What would you like?</label>
-      <%= search_field_tag 'search[query]', @search.query, :class => 'span6', :placeholder => 'i.e. pizza, salads, cola' %>
+	<div class="search-box">
+	  <h1><%= t 'Order online for free' %></h1>
 
-      <label>Where are you?</label>
-      <%= search_field_tag 'search[address]', @search.address, :class => 'span6', :placeholder => 'i.e. Kalithea Greece or Athens Greece' %>
-      <br />
-      <%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil %>
-      <% end %>
-    </div>
-  </section>
+	  <br />
+	  <% if @search.errors.any? %>
+		  <div class="error_messages">
+			<ul>
+			  <% @search.errors.full_messages.each do |message| %>
+				  <li><%= message %></li>
+			  <% end %>
+		  </div>
+	  <% end %>
+	  <%= form_tag(search_results_path, :method => :get) do %>
+		  <label>What would you like?</label>
+		  <%= search_field_tag 'search[query]', @search.query, :class => 'span5', :placeholder => 'i.e. pizza, salads, cola' %>
+
+		  <label>Where are you?</label>
+		  <%= search_field_tag 'search[address]', @search.address, :class => 'span5', :placeholder => 'i.e. Kalithea Greece or Athens Greece' %>
+		  <br />
+		  <%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil %>
+	  <% end %>
+	</div>
+  </div>
+
+</section>
