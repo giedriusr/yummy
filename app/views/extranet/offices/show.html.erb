@@ -45,6 +45,8 @@
   <%= @extranet_office.email %>
 </p>
 
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x100&sensor=true&zoom=16&markers=#{@extranet_office.latitude}%2C#{@extranet_office.longitude}" %>
+<br>
 
 <%= link_to 'Edit', edit_extranet_office_path(@extranet_office) %> |
 <%= link_to 'Back', extranet_offices_path %>

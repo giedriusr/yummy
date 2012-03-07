@@ -34,9 +34,11 @@ Provider.create([
 ])
 
 Office.create([
-  { provider_id: 1, name: 'Domino Nea smyrni', address: 'nea smyrni', city: 'Athens', country_code: 'GR', email: 'neasmyrnidomino@email.gr', phone: 123441232},
-  { provider_id: 1, name: 'Domino Kallithea', address: 'kallithea', city: 'Athens', country_code: 'GR', email: 'kallitheadomino@email.gr', phone: 238472983},
-  { provider_id: 2, name: 'PizzaHat Kallithea', address: 'Pireauas', city: 'Piraeus', country_code: 'GR', email: 'pirpizza@email.gr', phone: 238472983}
+  { provider_id: 1, name: 'Domino Nea smyrni', address: 'nea smyrni 17122', city: 'Athens', country_code: 'GR', email: 'neasmyrnidomino@email.gr', phone: 123441232},
+  { provider_id: 1, name: 'Domino Kallithea', address: 'kallithea saripolou 10 17671', city: 'Athens', country_code: 'GR', email: 'kallitheadomino@email.gr', phone: 238472983},
+  { provider_id: 1, name: 'Domino Piraeus', address: 'Kolokotroni 103, Piraeus 18535', city: 'Piraeus', country_code: 'GR', email: 'piraeus@email.gr', phone: 2123234323},
+  { provider_id: 1, name: 'Domino Glyfada', address: 'glyfada athens', city: 'Athens', country_code: 'GR', email: 'piraeus@email.gr', phone: 2123234323},
+  { provider_id: 2, name: 'PizzaHat Kallithea', address: 'evangelistrias 36 athens', city: 'Piraeus', country_code: 'GR', email: 'pirpizza@email.gr', phone: 238472983}
 ])
 
 Menu.create([

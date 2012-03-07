@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120304185906) do
+ActiveRecord::Schema.define(:version => 20120307222030) do
 
   create_table "categorizations", :force => true do |t|
     t.integer  "menu_id"
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(:version => 20120304185906) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.decimal  "price",       :precision => 10, :scale => 0
     t.string   "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.integer  "provider_id"
   end
 
@@ -87,10 +87,10 @@ ActiveRecord::Schema.define(:version => 20120304185906) do
     t.string   "address"
     t.string   "city"
     t.string   "country_code"
-    t.decimal  "longitude"
-    t.decimal  "latitude"
     t.string   "phone"
     t.string   "email"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "provider_id"
