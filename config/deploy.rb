@@ -18,9 +18,10 @@ task :production do
   server '78.47.206.148', :app, :web, :db, :primary => true
 end
 
-after "deploy", "deploy:update_shared_files"
-after "deploy", "deploy:bundle_install"
-after "deploy", "passenger:restart"
+after 'deploy', 'deploy:update_shared_files'
+after 'deploy', 'deploy:bundle_install'
+after 'deploy', 'cache:fix_permissions'
+after 'deploy', 'passenger:restart'
 
 namespace :deploy do
 
@@ -56,6 +57,13 @@ namespace :deploy do
   task :start do ; end
   task :stop do ; end
   task :restart do ; end
+end
+
+namespace :cache do
+  desc 'Fixing permissions of /public folder to "nogroup"'
+  task :fix_permissions, :roles => :app do
+    run "cd #{current_path}; #{try_sudo} chgrp nogroup public/"
+  end
 end
 
 namespace :passenger do
