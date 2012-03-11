@@ -1,5 +1,8 @@
 class CustomerDeliveryAddress < ActiveRecord::Base
 
-  attr_accessible :customer_id, :post_code, :country_code, :address, :city
+  attr_accessible :post_code, :country_code, :address, :city, :longitude, :latitude
+
+  validates :address, :city, :country_code, :post_code, :presence => true
+  validates :country_code, :length => { :is => 2 }
   belongs_to :customer
 end

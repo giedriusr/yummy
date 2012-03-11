@@ -48,4 +48,5 @@ group :test do
   gem 'spork', '~> 1.0rc'
   gem 'guard-rspec', '0.5.8'
   gem 'guard-spork', '0.3.2'
+  gem 'fakeweb'
 end

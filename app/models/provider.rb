@@ -21,6 +21,8 @@ class Provider < ActiveRecord::Base
                     :format => { :with => email_regex }
   has_many :offices
   has_many :menus
+  has_many :items
+  has_many :ingredients
 
   def to_param
     "#{id} #{name}".parameterize

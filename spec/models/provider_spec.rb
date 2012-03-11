@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Provider do
 
   before(:each) do
+    mock_geocoding!
     @attr = {
       :email => "user@example.com",
       :name => 'name',
@@ -18,6 +19,11 @@ describe Provider do
   it "should be valid when create new provider" do
     provider = Provider.create(@attr)
     provider.should be_valid
+  end
+
+  it 'should protect id attribute and generate its own' do
+    provider = Provider.create(@attr.merge(:id => 999))
+    provider.id.should eq(provider.id)
   end
 
   it "should accept valid email addresses" do
@@ -67,6 +73,43 @@ describe Provider do
     Provider.create!(@attr.merge(:email => upcased_email))
     provider_with_duplicate_email = Provider.new(@attr)
     provider_with_duplicate_email.should_not be_valid
+  end
+
+  it 'should reject passwords that are too long' do
+    long_password = 'a' * 31
+    long_password_provider = Provider.new(@attr.merge(:password => long_password))
+    long_password_provider.should_not be_valid
+  end
+
+  it 'should reject passwords that are too short' do
+    short_password = '123'
+    short_password_provider = Provider.new(@attr.merge(:password => short_password))
+    short_password_provider.should_not be_valid
+  end
+
+  it 'should return list of offices for current provider' do
+    provider = Provider.create(@attr)
+    office_one = provider.offices.build(:name => 'foo')
+    office_two = provider.offices.build(:name => 'bar')
+    office_three = provider.offices.build(:name => 'baz')
+    provider.save
+    provider.offices.length.should eq(3)
+    provider.offices.first.name.should eq('foo')
+    provider.offices.last.should equal(office_three)
+  end
+
+  it 'should return list of menus for current provider' do
+    provider = Provider.create(@attr)
+    menu_one = provider.menus.build(:name => 'pizza')
+    menu_two = provider.menus.build(:name => 'drinks')
+    provider.save
+    provider.menus.length.should eq(2)
+    provider.menus.first.name.should eq('pizza')
+  end
+
+  it 'should parametirize when url generated for ID' do
+      provider = Provider.create(@attr.merge(:name => 'tsom'))
+      provider.to_param.should eq("#{provider.id}-tsom")
   end
 
 end

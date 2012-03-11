@@ -1,4 +1,7 @@
 class Order < ActiveRecord::Base
+
+  attr_accessible :status
+
   has_many :order_items
   has_many :items
 

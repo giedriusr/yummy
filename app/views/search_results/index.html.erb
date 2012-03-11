@@ -5,8 +5,7 @@ We are searching for: <strong><%= @search.query %></strong>!
 <h1>Search results</h1><br>
 <% @items.each_with_index do |item, key| %>
   <%
-  provider = item.get_provider
-  product_link = provider_path(provider, :q => @search.query)
+  product_link = provider_path(item.provider, :q => @search.query)
   %>
   &bull; <%= link_to item.name, product_link %>
   <%= link_to 'Order', product_link, :class => 'btn btn-mini' %><br />
