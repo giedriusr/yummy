@@ -1,28 +1,19 @@
 <section id="billboard">
   <div class="container">
+		<div class="search-box">
+		  <h1><%= t 'Order online for free' %></h1>
 
-	<div class="search-box">
-	  <h1><%= t 'Order online for free' %></h1>
+		  <br>
+		  <%= render :partial => 'layouts/errors', :locals => { :object => @search } %>
 
-	  <br />
-	  <% if @search.errors.any? %>
-		  <div class="error_messages">
-			<ul>
-			  <% @search.errors.full_messages.each do |message| %>
-				  <li><%= message %></li>
-			  <% end %>
-		  </div>
-	  <% end %>
-	  <%= form_tag(search_results_path, :method => :get) do %>
-		  <label>What would you like?</label>
-		  <%= search_field_tag 'search[query]', @search.query, :class => 'span5', :placeholder => 'i.e. pizza, salads, cola' %>
+		  <%= form_tag(search_results_path, :method => :get) do %>
+				<label>What would you like?</label>
+				<%= search_field_tag 'search[query]', '', :class => 'span5', :placeholder => 'i.e. pizza, salads, cola', :autocomplete => :off %>
+			  <br>
+			  <%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil %>
+		  <% end %>
 
-		  <label>Where are you?</label>
-		  <%= search_field_tag 'search[address]', @search.address, :class => 'span5', :placeholder => 'i.e. Kalithea Greece or Athens Greece' %>
-		  <br />
-		  <%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil %>
-	  <% end %>
-	</div>
+		</div>
   </div>
 
 </section>

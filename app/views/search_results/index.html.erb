@@ -1,15 +1,19 @@
-We are searching for: <%= @wish %> and you are located in <strong><%= @geo.first.formatted_address %></strong>.
+<br>
+We are searching for: <strong><%= @search.query %></strong>!
 <br /><br />
 
-<strong>We found</strong><br />
+<h1>Search results</h1><br>
 <% @items.each_with_index do |item, key| %>
-  <% provider = item.get_provider %>
-  <%= key %>. <%= link_to item.name, provider_path(provider, :q => @wish) %><br />
+  <%
+  provider = item.get_provider
+  product_link = provider_path(provider, :q => @search.query)
+  %>
+  &bull; <%= link_to item.name, product_link %>
+  <%= link_to 'Order', product_link, :class => 'btn btn-mini' %><br />
 <% end %>
 <br />
 <%= link_to 'See all providers', providers_path %>
 <br>
-<br >
-Map of the your searching address:<br>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=14&markers=#{@geo.first.latitude}%2C#{@geo.first.longitude}" %>
+<br>
+<%#= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=14&markers=#{@geo.first.latitude}%2C#{@geo.first.longitude}" %>
 <br>

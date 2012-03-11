@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
+
+  attr_accessible :provider_id, :name, :price, :description
+
   has_many :categorization
   has_many :menus, :through => :categorization
 

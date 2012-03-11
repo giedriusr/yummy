@@ -1,15 +1,16 @@
 <h2>Menu</h2>
+<br>
 <% @provider.menus.each do |menu| %>
+  <%= image_tag "/assets/#{menu.photo}" %><br>
   <h3><%= menu.name %></h3>
   <% menu.items.each do |item| %>
     <%= item.name %> - <strong><%= number_to_currency item.price %></strong>
     <%= link_to 'add', "/cart/add/#{item.id}", :method => :post, :id => item.id %>
     <%= link_to 'del', "/cart/remove/#{item.id}", :method => :post, :id => item.id %>
-    <br />
-    <%# item.ingredients.each do |ingredient| %>
-      <%#= ingredient.name %>
-    <%#end %>
+    <br>
   <% end %>
+  <br>
+  <br>
 <% end %>
 
 <br />
