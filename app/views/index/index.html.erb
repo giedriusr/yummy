@@ -10,7 +10,7 @@
 				<label>What would you like?</label>
 				<%= search_field_tag 'search[query]', '', :class => 'span5', :placeholder => 'i.e. pizza, salads, cola', :autocomplete => :off %>
 			  <br>
-			  <%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil %>
+			  <%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil, :disable_with => 'Please wait..' %>
 		  <% end %>
 
 		</div>

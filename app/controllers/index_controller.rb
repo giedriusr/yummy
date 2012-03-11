@@ -1,4 +1,6 @@
 class IndexController < ApplicationController
+  caches_page :index
+
   def index
     # geo_location = Geocoder.search('188.4.31.200') # request.ip
     # @search = Search.new(geo_location.first)
