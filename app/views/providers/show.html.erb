@@ -1,45 +1,63 @@
-<h2>Menu</h2>
-<br>
-<% @provider.menus.each do |menu| %>
-  <%= image_tag "/assets/#{menu.photo}" %><br>
-  <h3><%= menu.name %></h3>
-  <% menu.items.each do |item| %>
-    <%= item.name %> - <strong><%= number_to_currency item.price %></strong>
-    <%= link_to 'add', "/cart/add/#{item.id}", :method => :post, :id => item.id %>
-    <%= link_to 'del', "/cart/remove/#{item.id}", :method => :post, :id => item.id %>
-    <br>
-  <% end %>
-  <br>
-  <br>
-<% end %>
+<div class="provider">
 
-<br />
-<br />
-<br />
+  <h2>Menu</h2>
 
-<h2>Offices</h2>
-<% @provider.offices.each do |office| %>
-  <section itemscope itemtype="http://schema.org/Restaurant">
-     <strong itemprop="name"><%= office.name %></strong>
-     <span><%= office.description %></span>
+  <ul class="nav nav-tabs">
+	<li class="active"><a href="#menu" data-toggle="tab">Home</a></li>
+	<li><a href="#details" data-toggle="tab">Details</a></li>
+	<li><a href="#reviews" data-toggle="tab">Reviews</a></li>
+  </ul>
 
-     <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-       <span itemprop="streetAddress"><%= office.address %></span>
-       <span itemprop="addressLocality"><%= office.city %></span>,
-       <span itemprop="postalCode">Postal Code*</span>,
-       <span itemprop="addressRegion">Region*</span>,
-       <%= office.country_code %>
-     </address>
-     Email: <span itemprop="email"><%= office.email %></span><br>
-     Phone: <span itemprop="telephone"><%= office.phone %></span>
+  <div id="menu">
+	<% @provider.menus.each do |menu| %>
+		<div class="menu-category">
+		  <div class="thumb">
+			<%= image_tag "/assets/#{menu.photo}" %>
+		  </div>
+		  <h3><%= menu.name %></h3>
+		  <ul class="menu">
+			<% menu.items.each do |item| %>
+				<li>
+				  <%= item.name %>
+				  <span class="price"><%= number_to_currency item.price %></span>
+			  <span class="action">
+				<%= link_to '+add', "/cart/add/#{item.id}", :method => :post, :id => item.id %>
+			  </span>
+				</li>
+			<% end %>
+		  </ul>
+		</div>
+	<% end %>
+  </div>
 
-     <br />
-     Hours*:
+  <div id="details" class="hide">
+	Lorem Ipsum Dolor sit amet
+  </div>
+
+  <h2>Offices</h2>
+  <% @provider.offices.each do |office| %>
+	  <section itemscope itemtype="http://schema.org/Restaurant">
+		<strong itemprop="name"><%= office.name %></strong>
+		<span><%= office.description %></span>
+
+		<address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+		  <span itemprop="streetAddress"><%= office.address %></span>
+		  <span itemprop="addressLocality"><%= office.city %></span>,
+		  <span itemprop="postalCode">Postal Code*</span>,
+		  <span itemprop="addressRegion">Region*</span>,
+		  <%= office.country_code %>
+		</address>
+		Email: <span itemprop="email"><%= office.email %></span><br>
+		Phone: <span itemprop="telephone"><%= office.phone %></span>
+
+		<br />
+		Hours*:
 		<meta itemprop="openingHours" content="Mo-Sa 11:00-14:30">Mon-Sat 11am - 2:30pm,
 		<meta itemprop="openingHours" content="Mo-Th 17:00-21:30">Mon-Thu 5pm - 9:30pm,
 		<meta itemprop="openingHours" content="Fr-Sa 17:00-22:00">Fri-Sat 5pm - 10:00pm,
-    <br>
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=14&markers=#{office.latitude}%2C#{office.longitude}" %>
-  </section>
-  <hr />
-<% end %>
+		<br>
+		<%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=14&markers=#{office.latitude}%2C#{office.longitude}" %>
+	  </section>
+	  <hr />
+  <% end %>
+</div>

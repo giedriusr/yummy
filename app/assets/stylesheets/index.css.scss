@@ -17,6 +17,10 @@
   }
 }
 
+body {
+  background: url("/assets/bg-body.gif");
+}
+
 // Homepage Billboard (Hero Unit)
 #billboard {
   padding: 60px 0;
@@ -61,4 +65,54 @@
 // Page Elements
 #footer {
   clear: both;
+}
+.provider {
+  background: white;
+  @include box-shadow(0 1px 5px rgba(0,0,0, .05));
+  padding: 25px;
+
+  .menu-category {
+    margin-bottom: 40px;
+    float: left;
+
+    .thumb {
+      height: 90px;
+      overflow: hidden;
+    }
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+}
+
+.menu {
+  margin-left: -25px;
+
+  > li {
+    width: 270px;
+    margin-left: 25px;
+    float: left;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    list-style: none;
+    position: relative;
+
+    &:hover .action {
+      display: inline-block;
+    }
+  }
+
+  .action {
+    float: right;
+    padding-right: 10px;
+    position: absolute;
+    display: none;
+
+  }
+  .price {
+    font-weight: bold;
+    float: right;
+    color: $green
+  }
 }
