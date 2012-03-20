@@ -21,7 +21,7 @@ truncate('categorizations')
 truncate('ingredients')
 truncate('ingredient_categorizations')
 truncate('customers')
-truncate('customer_delivery_addresses')
+truncate('addresses')
 truncate('employees')
 
 # seeding with dummy data
@@ -240,11 +240,11 @@ customer = Customer.create(:email => 'customer@fakeemail.com', :password => '123
                            :first_name => 'Giedrius', :last_name => 'Rimkus',
                            :phone => '1234321')
 
-customer.customer_delivery_addresses.create(:country_code => 'GR',
+customer.addresses.create(:country_code => 'GR',
                                             :address => 'Allikarnassou 2',
                                             :city => 'Athens',
                                             :post_code => '17122')
-customer.customer_delivery_addresses.create(:country_code => 'GR',
+customer.addresses.create(:country_code => 'GR',
                                             :address => 'Saripoulou 10-8',
                                             :city => 'Athens',
                                             :post_code => '17671')

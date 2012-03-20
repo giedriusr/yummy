@@ -1,0 +1,9 @@
+<h1>Delivery address</h1>
+<p>Address: <%= @address.address %></p>
+<p>City: <%= @address.city %></p>
+<p>Country: <%= @address.country_code %></p>
+<p>Post Code: <%= @address.post_code %></p>
+<p>Created at: <%= @address.created_at %></p>
+
+<br>
+<%= link_to 'All addresses', addresses_path %>

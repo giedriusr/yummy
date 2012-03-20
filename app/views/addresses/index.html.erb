@@ -1,0 +1,30 @@
+<h1>Your delivery addresses</h1>
+<h5>Below you can create as many delivery addresses as you want. In the
+checkout page you will be able to select which address you want to use for food delivery</h5>
+<br>
+<table>
+  <tr>
+    <th>Address</th>
+    <th>Post Code</th>
+    <th>City</th>
+    <th>Country</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @addresses.each do |address| %>
+  <tr>
+    <td><%= address.address %></td>
+    <td><%= address.post_code %></td>
+    <td><%= address.city %></td>
+    <td><%= address.country_code %></td>
+    <td><%= link_to t('Show'), address_path(address) %></td>
+    <td><%= link_to t('Edit'), edit_address_path(address) %></td>
+    <td><%= link_to t('Destroy'), address_path(address), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to t('New address'), new_address_path, :class => 'btn btn-primary' %>

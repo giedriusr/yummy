@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Order Food Online</title>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<title>yummy - food delivery services</title>
+	<%= stylesheet_link_tag "application", :media => "all" %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
@@ -21,9 +21,9 @@
 			</div>
 			<div class="span4">
 				<% if @order %>
-				<div id="shopping_cart">
-					<%= render 'order/order' %>
-				</div>
+					<div id="shopping_cart">
+						<%= render 'order/order' %>
+					</div>
 				<% end %>
 			</div>
 		</div>

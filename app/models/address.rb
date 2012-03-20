@@ -1,4 +1,4 @@
-class CustomerDeliveryAddress < ActiveRecord::Base
+class Address < ActiveRecord::Base
 
   attr_accessible :post_code, :country_code, :address, :city, :longitude, :latitude
 

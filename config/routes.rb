@@ -1,9 +1,9 @@
 Foodsearch::Application.routes.draw do
 
-  resources :customers
+  resources :customers, :has_many => :addresses
   resources :sessions
   resources :providers, :only => [:show, :index]
-  resources :customer_delivery_addresses
+  resources :addresses
 
   namespace :admin do
     resources :sessions, :only => [:new, :create, :destroy]
@@ -25,6 +25,8 @@ Foodsearch::Application.routes.draw do
   get 'signup', to: 'customers#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+  get 'account', to: 'customers#edit', as: 'account'
+  get 'profile', to: 'customers#show', as: 'profile'
 
   get '/results' => 'search_results#index', :as => 'search_results'
   match 'cart/add/:id', to: 'order#add'

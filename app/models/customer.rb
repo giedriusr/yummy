@@ -17,6 +17,6 @@ class Customer < ActiveRecord::Base
                        :on => :create,
                        :length => { :within => 6..30 }
 
-  has_many :customer_delivery_addresses
+  has_many :addresses
 
 end

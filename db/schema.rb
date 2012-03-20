@@ -11,25 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311111609) do
+ActiveRecord::Schema.define(:version => 20120320223056) do
 
-  create_table "categorizations", :force => true do |t|
-    t.integer  "menu_id"
-    t.integer  "item_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "customer_delivery_addresses", :force => true do |t|
+  create_table "addresses", :force => true do |t|
     t.integer  "customer_id"
     t.string   "address"
+    t.string   "post_code"
     t.string   "city"
     t.string   "country_code"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.float    "longitude"
     t.float    "latitude"
-    t.string   "post_code"
+  end
+
+  create_table "categorizations", :force => true do |t|
+    t.integer  "menu_id"
+    t.integer  "item_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "customers", :force => true do |t|
@@ -86,16 +86,16 @@ ActiveRecord::Schema.define(:version => 20120311111609) do
     t.string   "name"
     t.string   "description"
     t.string   "address"
+    t.string   "post_code"
     t.string   "city"
     t.string   "country_code"
     t.string   "phone"
     t.string   "email"
+    t.float    "longitude"
+    t.float    "latitude"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "provider_id"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "post_code"
   end
 
   create_table "order_item_ingredients", :force => true do |t|
