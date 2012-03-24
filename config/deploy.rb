@@ -18,10 +18,14 @@ task :production do
   server '78.47.206.148', :app, :web, :db, :primary => true
 end
 
-after 'deploy', 'deploy:update_shared_files'
 after 'deploy', 'deploy:bundle_install'
+after 'deploy', 'deploy:update_shared_files'
 after 'deploy', 'cache:fix_permissions'
+after 'deploy', 'assets:precompile'
+after 'deploy', 'deploy:real_symlink'
+after 'deploy', 'deploy:migrate'
 after 'deploy', 'passenger:restart'
+after 'deploy', 'deploy:cleanup'
 
 namespace :deploy do
 
@@ -36,33 +40,36 @@ namespace :deploy do
   end
 
    task :update_shared_files, :roles => :web do
-    run "ln -s #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     production_log = "log/production.log"
-    run "ln -s #{shared_path}/#{production_log} #{current_path}/#{production_log}"
+    run "ln -s #{shared_path}/#{production_log} #{release_path}/#{production_log}"
   end
 
   task :bundle_install, :roles => :web do
-    run "cd #{current_path}; bundle install"
+    run "cd #{release_path}; bundle install"
   end
 
-  task :prepare_database, :roles => :web do
+  task :prepare_database, :roles => :db do
     run "cd #{current_path}; RAILS_ENV=production bundle exec rake db:create"
     run "cd #{current_path}; RAILS_ENV=production bundle exec rake db:migrate"
   end
 
-  task :migrations, :roles => :web do
+  task :migrate, :roles => :db, :only => { :primary => true } do
     run "cd #{current_path}; RAILS_ENV=production bundle exec rake db:migrate"
   end
 
-  task :start do ; end
-  task :stop do ; end
   task :restart do ; end
+  task :symlink do ; end
+
+  task :real_symlink do
+    run "rm -f #{current_path} && ln -s #{release_path} #{current_path}"
+  end
 end
 
 namespace :cache do
   desc 'Fixing permissions of /public folder to "nogroup"'
   task :fix_permissions, :roles => :app do
-    run "cd #{current_path}; #{try_sudo} chgrp nogroup public/"
+    run "cd #{release_path}; #{try_sudo} chgrp nogroup public/"
   end
 end
 
@@ -76,7 +83,7 @@ end
 namespace :assets do
   desc 'Precompiling assets'
   task :precompile, :roles => :web do
-    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
 
