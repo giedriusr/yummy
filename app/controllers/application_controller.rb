@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_locale, :set_history_path
+  before_filter :set_locale, :set_history_path, :prepare_for_mobile
 
   def set_locale
     # available_locales = [:en, :el]
@@ -37,8 +37,6 @@ class ApplicationController < ActionController::Base
     @current_employee ||= Employee.find(session[:employee_id]) if session[:employee_id]
   end
 
-  helper_method :current_user, :current_provider, :current_employee
-
   def authorize_customer
     redirect_to login_url, alert: "Not authorized" if current_user.nil?
   end
@@ -50,4 +48,19 @@ class ApplicationController < ActionController::Base
   def authorize_employee
     redirect_to admin_login_url, alert: 'Not authorized' if current_employee.nil?
   end
+
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == '1'
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    # request.format = :mobile if mobile_device?
+  end
+
+  helper_method :current_user, :current_provider, :current_employee, :mobile_device?
 end

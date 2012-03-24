@@ -2,13 +2,14 @@
 <html>
 <head>
 	<title>yummy - food delivery services</title>
-	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= stylesheet_link_tag 'application' unless mobile_device? %>
+	<%= stylesheet_link_tag 'mobile/application' if mobile_device? %>
 	<%= csrf_meta_tags %>
 </head>
 <body>
 	<div id="flash">
 		<% flash.each do |name, msg| %>
-		<%= content_tag :div, t(msg), id: "flash_#{name}" %>
+			<%= content_tag :div, t(msg), id: "flash_#{name}" %>
 		<% end %>
 	</div>
 
