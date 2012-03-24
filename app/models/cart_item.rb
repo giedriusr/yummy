@@ -1,5 +1,5 @@
-class OrderItem < ActiveRecord::Base
-  belongs_to :order
+class CartItem < ActiveRecord::Base
+  belongs_to :cart
   belongs_to :item
 
   attr_accessible :price, :quantity, :comment

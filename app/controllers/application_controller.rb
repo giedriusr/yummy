@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_locale, :set_history_path, :prepare_for_mobile
+  before_filter :set_locale, :prepare_for_mobile
 
   def set_locale
     # available_locales = [:en, :el]
@@ -10,18 +10,14 @@ class ApplicationController < ActionController::Base
     I18n.locale = session[:locale]
   end
 
-  def set_history_path
-    session[:return_to] ||= root_path
-  end
-
   private
 
-  def initialize_order
-    if session[:order_id]
-      @order = Order.find(session[:order_id])
+  def initialize_cart
+    if session[:cart_id]
+      @cart = Cart.find(session[:cart_id])
     else
-      @order = Order.create
-      session[:order_id] = @order.id
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
     end
   end
 

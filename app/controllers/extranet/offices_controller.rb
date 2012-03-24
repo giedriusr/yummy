@@ -1,10 +1,10 @@
 class Extranet::OfficesController < Extranet::IndexController
   def index
-    @extranet_offices = Office.where('provider_id = ?', current_provider.id)
+    @offices = Office.where('provider_id = ?', current_provider.id)
   end
 
   def new
-    @extranet_office = Office.new
+    @office = Office.new
   end
 
   def create
@@ -14,10 +14,10 @@ class Extranet::OfficesController < Extranet::IndexController
   end
 
   def show
-    @extranet_office = Office.find(params[:id])
+    @office = Office.find(params[:id])
   end
 
   def edit
-    @extranet_office = Office.find(params[:id])
+    @office = Office.find(params[:id])
   end
 end

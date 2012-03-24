@@ -1,15 +1,6 @@
-<%= form_for([:extranet, @extranet_office]) do |f| %>
-  <% if @extranet_office.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@extranet_office.errors.count, "error") %> prohibited this extranet_office from being saved:</h2>
+<%= form_for([:extranet, @office]) do |f| %>
 
-      <ul>
-      <% @extranet_office.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render :partial => 'layouts/errors', :locals => { :object => @office } %>
 
   <div class="field">
     <%= f.label :name %><br />
@@ -28,16 +19,12 @@
     <%= f.text_field :city %>
   </div>
   <div class="field">
+    <%= f.label :post_code %><br />
+    <%= f.text_field :post_code %>
+  </div>
+  <div class="field">
     <%= f.label :country_code %><br />
     <%= f.text_field :country_code %>
-  </div>
-  <div class="field">
-    <%= f.label :longitude %><br />
-    <%= f.text_field :longitude %>
-  </div>
-  <div class="field">
-    <%= f.label :latitude %><br />
-    <%= f.text_field :latitude %>
   </div>
   <div class="field">
     <%= f.label :phone %><br />

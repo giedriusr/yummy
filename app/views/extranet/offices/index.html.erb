@@ -16,20 +16,20 @@
     <th></th>
   </tr>
 
-<% @extranet_offices.each do |extranet_office| %>
+<% @offices.each do |office| %>
   <tr>
-    <td><%= extranet_office.name %></td>
-    <td><%= extranet_office.description %></td>
-    <td><%= extranet_office.address %></td>
-    <td><%= extranet_office.city %></td>
-    <td><%= extranet_office.country_code %></td>
-    <td><%= extranet_office.longitude %></td>
-    <td><%= extranet_office.latitude %></td>
-    <td><%= extranet_office.phone %></td>
-    <td><%= extranet_office.email %></td>
-    <td><%= link_to 'Show', extranet_office_path(extranet_office) %></td>
-    <td><%= link_to 'Edit', edit_extranet_office_path(extranet_office) %></td>
-    <td><%= link_to 'Destroy', extranet_office_path(extranet_office), confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= office.name %></td>
+    <td><%= office.description %></td>
+    <td><%= office.address %></td>
+    <td><%= office.city %></td>
+    <td><%= office.country_code %></td>
+    <td><%= office.longitude %></td>
+    <td><%= office.latitude %></td>
+    <td><%= office.phone %></td>
+    <td><%= office.email %></td>
+    <td><%= link_to 'Show', extranet_office_path(office) %></td>
+    <td><%= link_to 'Edit', edit_extranet_office_path(office) %></td>
+    <td><%= link_to 'Destroy', extranet_office_path(office), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

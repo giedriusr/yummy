@@ -1,5 +1,5 @@
 class SearchResultsController < ApplicationController
-  before_filter :initialize_order, :set_ip
+  before_filter :initialize_cart, :set_ip
 
   def index
     @geo_location = Geocoder.search(@ip).first # request.ip

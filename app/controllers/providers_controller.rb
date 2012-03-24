@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_filter :initialize_order
+  before_filter :initialize_cart
   def index
     @providers = Provider.all
   end

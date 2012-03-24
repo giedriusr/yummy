@@ -23,6 +23,11 @@ truncate('ingredient_categorizations')
 truncate('customers')
 truncate('addresses')
 truncate('employees')
+truncate('carts')
+truncate('cart_items')
+truncate('order_items')
+truncate('orders')
+truncate('order_item_ingredients')
 
 # seeding with dummy data
 # with ID's it doesn't work :(
@@ -34,9 +39,9 @@ truncate('employees')
 domino = Provider.create(:name => 'Domino Pizza', :password => '123456',
                            :phone => '302130048400', :email => 'domino@fakeemail.gr')
 # 1-4
-domino.offices.create(:address => 'Lenorman 89', :city => 'Athens',
+domino.offices.create(:address => 'Saripolou 10', :city => 'Athens',
                         :country_code => 'GR', :phone => '302130048400',
-                        :email => 'domino1@fakeemail.gr', :post_code => '10441',
+                        :email => 'domino1@fakeemail.gr', :post_code => '17671',
                         :description => 'office description', :name => 'domino 1st office')
 domino.offices.create(:address => 'Aristonikou 1', :city => 'Athens',
                         :country_code => 'GR', :phone => '302109246375',

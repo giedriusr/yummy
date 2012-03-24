@@ -2,51 +2,51 @@
 
 <p>
   <b>Name:</b>
-  <%= @extranet_office.name %>
+  <%= @office.name %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @extranet_office.description %>
+  <%= @office.description %>
 </p>
 
 <p>
   <b>Address:</b>
-  <%= @extranet_office.address %>
+  <%= @office.address %>
 </p>
 
 <p>
   <b>City:</b>
-  <%= @extranet_office.city %>
+  <%= @office.city %>
 </p>
 
 <p>
   <b>Country code:</b>
-  <%= @extranet_office.country_code %>
+  <%= @office.country_code %>
 </p>
 
 <p>
   <b>Longitude:</b>
-  <%= @extranet_office.longitude %>
+  <%= @office.longitude %>
 </p>
 
 <p>
   <b>Latitude:</b>
-  <%= @extranet_office.latitude %>
+  <%= @office.latitude %>
 </p>
 
 <p>
   <b>Phone:</b>
-  <%= @extranet_office.phone %>
+  <%= @office.phone %>
 </p>
 
 <p>
   <b>Email:</b>
-  <%= @extranet_office.email %>
+  <%= @office.email %>
 </p>
 
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x100&sensor=true&zoom=16&markers=#{@extranet_office.latitude}%2C#{@extranet_office.longitude}" %>
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=250x100&sensor=true&zoom=16&markers=#{@office.latitude}%2C#{@office.longitude}" %>
 <br>
 
-<%= link_to 'Edit', edit_extranet_office_path(@extranet_office) %> |
+<%= link_to 'Edit', edit_extranet_office_path(@office) %> |
 <%= link_to 'Back', extranet_offices_path %>

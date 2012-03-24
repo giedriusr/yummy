@@ -31,11 +31,11 @@ Foodsearch::Application.routes.draw do
   get 'places', to: 'providers#index', as: 'places'
 
   get '/results' => 'search_results#index', :as => 'search_results'
-  match 'cart/add/:id', to: 'order#add'
-  match 'cart/remove/:id', to: 'order#remove'
-  match 'cart/clear', to: 'order#clear'
-  match 'cart/complete', to: 'order#complete', :as => 'cart_complete'
-  get 'cart', to: 'order#index'
+  match 'cart/add/:id', to: 'cart#add'
+  match 'cart/remove/:id', to: 'cart#remove'
+  match 'cart/clear', to: 'cart#clear'
+  match 'cart/complete', to: 'cart#complete', :as => 'cart_complete'
+  get 'cart', to: 'cart#index'
   # match matches any http method/verb, while get matches only http method/verb GET.
   root :to => 'index#index'
 

@@ -1,10 +1,10 @@
 class Extranet::MenusController < Extranet::IndexController
   def index
-    @extranet_menus = Menu.where('provider_id = ?', current_provider.id)
+    @menus = Menu.where('provider_id = ?', current_provider.id)
   end
 
   def new
-    @extranet_menu = Menu.new
+    @menu = Menu.new
   end
 
   def create
@@ -14,10 +14,10 @@ class Extranet::MenusController < Extranet::IndexController
   end
 
   def show
-    @extranet_menu = Menu.find(params[:id])
+    @menu = Menu.find(params[:id])
   end
 
   def edit
-    @extranet_menu = Menu.find(params[:id])
+    @menu = Menu.find(params[:id])
   end
 end

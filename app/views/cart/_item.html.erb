@@ -1,5 +1,5 @@
 <table width="300px">
-  <caption>Your cart</caption>
+  <caption><h1>Your cart</h1></caption>
   <thead>
     <tr align="left">
       <th>Name</th>
@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @order.order_items.each do |item| %>
+    <% @cart.cart_items.each do |item| %>
       <tr>
         <td><%= item.item.name %></td>
         <td><%= number_to_currency item.item.price %></td>
@@ -25,7 +25,7 @@
     <tr>
       <td></td>
       <td>Total:</td>
-      <td><%= number_to_currency @order.total %></td>
+      <td><%= number_to_currency @cart.total %></td>
     </tr>
   </tbody>
 </table>
