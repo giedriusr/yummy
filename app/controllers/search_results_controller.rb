@@ -6,8 +6,8 @@ class SearchResultsController < ApplicationController
 
     @search = Search.new(params[:search])
     if @search.valid?
-      @offices = Office.near(@geo_location.ip, 1.4)
-      @items = Item.where('name LIKE ?', "%#{@search.query}%").group('provider_id')
+      @providers = Provider.joins(:items).where('items.name LIKE ?', "%#{@search.query}%").uniq
+      @offices = Office.valid_offices(@providers, @geo_location.ip)
     else
       render 'index/index'
     end

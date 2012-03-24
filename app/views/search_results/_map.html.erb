@@ -23,10 +23,10 @@ function initialize() {
 }
 
 var sites = [
-  ['Your house', <%= @geo_location.latitude %>, <%= @geo_location.longitude %>, 'Your current location', '/assets/customer.png'],
+  ['Your house', <%= @geo_location.latitude %>, <%= @geo_location.longitude %>, 'Your current location', '/assets/icons/customer.png'],
 
   <% @offices.each_with_index do |office, key| %>
-    ['<%= office.name %>', <%= office.latitude %>, <%= office.longitude %>, '<%= "#{office.name}, #{office.address}, #{office.city}" %>', '/assets/icon.png']
+    ['<%= office.name %>', <%= office.latitude %>, <%= office.longitude %>, '<%= "#{office.name}, #{office.address}, #{office.city}" %>', '/assets/icons/icon.png']
     <% if (key < (results_found - 1)) %>,<% end  %>
   <% end %>
 ];
@@ -52,4 +52,4 @@ function setMarkers(map, markers) {
 }
 </script>
 
-<div id="map_canvas" style="width: 500px; height: 250px;"></div>
+<div id="map_canvas" style="width: 400px; height: 250px;"></div>

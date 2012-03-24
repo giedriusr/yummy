@@ -14,6 +14,7 @@ gem 'inherited_resources', '1.2.2'
 gem 'redis', '2.2.2'
 gem 'yajl-ruby'
 gem 'active_attr'
+gem 'rails-i18n'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.4'

@@ -1,18 +1,17 @@
 <br><%= render 'layouts/search' %>
 
 <h1>Search results</h1><br>
-
-<div style="float: left; width=300px">
+<div style="float: left; width=400px">
 	<%= render 'map' %>
 </div>
 <div style="float: right">
-	<% @items.each_with_index do |item, key| %>
-	<%
-	provider = item.provider
-	product_link = place_path(provider, :q => @search.query)
-	%>
-	&bull; <%= link_to provider.name, product_link %>
-	<br>
+  <% @offices.each_with_index do |office, key| %>
+    <% provider = office.provider %>
+    <h2><%= link_to office.name, place_path(provider, :q => @search.query) %></h2>
+    <%= image_tag "/assets/icons/stars#{rand(4)+1}.png" %><br>
+    <%= t 'Delivery' %>: <%= number_to_currency(rand(8)) %><br>
+    <%= t 'Minimum' %>: <%= number_to_currency(0) %><br>
+    <br>
 	<% end %>
 	<%= link_to 'See all places', places_path %>
 </div>

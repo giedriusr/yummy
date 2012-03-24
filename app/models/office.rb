@@ -17,4 +17,21 @@ class Office < ActiveRecord::Base
 
   belongs_to :provider
 
+  def self.valid_offices(providers, ip)
+    valid_offices = []
+    near_offices = self.near(ip, 10)
+
+    providers.each do |provider|
+      poffices = provider.offices
+      poffices.each do |office|
+        near_offices.each do |near_office|
+          if near_office.id == office.id
+            valid_offices << near_office
+          end
+        end
+      end
+    end
+    valid_offices
+  end
+
 end
