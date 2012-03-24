@@ -1,0 +1,5 @@
+<%= form_tag(search_results_path, :method => :get) do %>
+	<%= search_field_tag 'search[query]', @search.query, :class => 'span5', :placeholder => 'i.e. pizza, salads, cola', :autocomplete => :off %>
+	<br>
+	<%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil, :disable_with => 'Please wait..' %>
+<% end %>
