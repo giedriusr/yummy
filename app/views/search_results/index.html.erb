@@ -1,18 +1,23 @@
 <br>
 We are searching for: <strong><%= @search.query %></strong>!
-<br /><br />
+<br><br>
 
 <h1>Search results</h1><br>
-<% @items.each_with_index do |item, key| %>
-  <%
-  product_link = place_path(item.provider, :q => @search.query)
-  %>
-  &bull; <%= link_to item.provider.name, product_link %>
-  <br>
-<% end %>
-<br />
-<%= link_to 'See all places', places_path %>
+
+<div style="float: left; width=300px">
+	<%= render 'map' %>
+</div>
+<div style="float: right">
+	<% @items.each_with_index do |item, key| %>
+	<%
+	provider = item.provider
+	product_link = place_path(provider, :q => @search.query)
+	%>
+	&bull; <%= link_to provider.name, product_link %>
+	<br>
+	<% end %>
+	<%= link_to 'See all places', places_path %>
+</div>
+
 <br>
-<br>
-<%#= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=14&markers=#{@geo.first.latitude}%2C#{@geo.first.longitude}" %>
 <br>

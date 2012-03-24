@@ -1,0 +1,55 @@
+<% results_found = @offices.size %>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+  var infowindow = null;
+  $(document).ready(function () {
+    initialize();
+  });
+
+function initialize() {
+
+  var centerMap = new google.maps.LatLng(<%= @geo_location.latitude %>, <%= @geo_location.longitude %>);
+  var myOptions = {
+    zoom: 11,
+    center: centerMap,
+    mapTypeId: 'roadmap'
+  }
+
+  var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+  setMarkers(map, sites);
+  infowindow = new google.maps.InfoWindow({content: "loading..."});
+}
+
+var sites = [
+  ['Your house', <%= @geo_location.latitude %>, <%= @geo_location.longitude %>, 'Your current location', '/assets/customer.png'],
+
+  <% @offices.each_with_index do |office, key| %>
+    ['<%= office.name %>', <%= office.latitude %>, <%= office.longitude %>, '<%= "#{office.name}, #{office.address}, #{office.city}" %>', '/assets/icon.png']
+    <% if (key < (results_found - 1)) %>,<% end  %>
+  <% end %>
+];
+
+function setMarkers(map, markers) {
+
+  for (var i = 0; i < markers.length; i++) {
+    var sites = markers[i];
+    var siteLatLng = new google.maps.LatLng(sites[1], sites[2]);
+    var marker = new google.maps.Marker({
+      position: siteLatLng,
+      map: map,
+      title: sites[0],
+      html: sites[3],
+      icon: sites[4]
+    });
+
+    google.maps.event.addListener(marker, "click", function () {
+      infowindow.setContent(this.html);
+      infowindow.open(map, this);
+    });
+  }
+}
+</script>
+
+<div id="map_canvas" style="width: 500px; height: 250px;"></div>
