@@ -1,5 +1,7 @@
 class Provider < ActiveRecord::Base
   has_secure_password
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   attr_accessible :email, :password, :name, :phone
 
@@ -24,7 +26,7 @@ class Provider < ActiveRecord::Base
   has_many :items
   has_many :ingredients
 
-  def to_param
-    "#{id} #{name}".parameterize
+  def should_generate_new_friendly_id?
+    new_record?
   end
 end

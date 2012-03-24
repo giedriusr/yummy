@@ -7,8 +7,8 @@ We are searching for: <strong><%= @search.query %></strong>!
   <%
   product_link = provider_path(item.provider, :q => @search.query)
   %>
-  &bull; <%= link_to item.name, product_link %>
-  <%= link_to 'Order', product_link, :class => 'btn btn-mini' %><br />
+  &bull; <%= link_to item.provider.name, product_link %>
+  <br>
 <% end %>
 <br />
 <%= link_to 'See all providers', providers_path %>

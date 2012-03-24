@@ -107,9 +107,9 @@ describe Provider do
     provider.menus.first.name.should eq('pizza')
   end
 
-  it 'should parametirize when url generated for ID' do
-      provider = Provider.create(@attr.merge(:name => 'tsom'))
-      provider.to_param.should eq("#{provider.id}-tsom")
+  it 'should generate friendly url using FriendlyId gem' do
+      provider = Provider.create(@attr.merge(:name => 'Hot Dogs'))
+      provider.to_param.should eq("hot-dogs")
   end
 
 end

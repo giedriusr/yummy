@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320223056) do
+ActiveRecord::Schema.define(:version => 20120324001033) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "customer_id"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(:version => 20120320223056) do
     t.string   "post_code"
     t.string   "city"
     t.string   "country_code"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
     t.float    "longitude"
     t.float    "latitude"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "categorizations", :force => true do |t|
@@ -59,19 +59,19 @@ ActiveRecord::Schema.define(:version => 20120320223056) do
   end
 
   create_table "ingredients", :force => true do |t|
+    t.integer  "provider_id"
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "provider_id"
   end
 
   create_table "items", :force => true do |t|
+    t.integer  "provider_id"
     t.string   "name"
     t.float    "price"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "provider_id"
   end
 
   create_table "menus", :force => true do |t|
@@ -128,9 +128,12 @@ ActiveRecord::Schema.define(:version => 20120320223056) do
     t.string   "name"
     t.string   "phone"
     t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "password_digest"
+    t.string   "slug"
   end
+
+  add_index "providers", ["slug"], :name => "index_providers_on_slug"
 
 end
