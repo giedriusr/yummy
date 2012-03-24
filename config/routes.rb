@@ -27,6 +27,8 @@ Foodsearch::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   get 'account', to: 'customers#edit', as: 'account'
   get 'profile', to: 'customers#show', as: 'profile'
+  get 'places/:id', to: 'providers#show', as: 'place'
+  get 'places', to: 'providers#index', as: 'places'
 
   get '/results' => 'search_results#index', :as => 'search_results'
   match 'cart/add/:id', to: 'order#add'

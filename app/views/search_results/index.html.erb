@@ -5,13 +5,13 @@ We are searching for: <strong><%= @search.query %></strong>!
 <h1>Search results</h1><br>
 <% @items.each_with_index do |item, key| %>
   <%
-  product_link = provider_path(item.provider, :q => @search.query)
+  product_link = place_path(item.provider, :q => @search.query)
   %>
   &bull; <%= link_to item.provider.name, product_link %>
   <br>
 <% end %>
 <br />
-<%= link_to 'See all providers', providers_path %>
+<%= link_to 'See all places', places_path %>
 <br>
 <br>
 <%#= image_tag "http://maps.google.com/maps/api/staticmap?size=300x150&sensor=false&zoom=14&markers=#{@geo.first.latitude}%2C#{@geo.first.longitude}" %>
