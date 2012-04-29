@@ -1,5 +1,6 @@
 <% if @cart.cart_items.empty? %>
   <h1>Your cart is empty</h1>
+  <%= link_to 'Continue shopping', places_path, :class => 'btn btn-primary btn-large' %>
 <% else %>
   <%= render :partial => 'cart/item' %>
 
@@ -12,12 +13,15 @@
       <% end %>
     <% end %>
 
-    <% if (current_user) %>
-        <p align="right"><%= submit_tag 'Order', :class => 'btn btn-success btn-large' %></p>
-    <% else %>
-        <p align="right"><%= link_to 'Order',
-    cart_complete_path(:anchor => 'loginBox'), :class => 'btn btn-success btn-large', :'data-toggle' => 'modal' %></p>
-    <% end %>
+	  <p align="right">
+      <%= link_to 'Continue shopping', places_path, :class => 'btn btn-primary btn-large' %>
+      <% if (current_user) %>
+          <%= submit_tag 'Order', :class => 'btn btn-success btn-large' %>
+      <% else %>
+          <%= link_to 'Order',
+      cart_complete_path(:anchor => 'loginBox'), :class => 'btn btn-success btn-large', :'data-toggle' => 'modal' %>
+      <% end %>
+    </p>
   <% end %>
 
 <% end %>
