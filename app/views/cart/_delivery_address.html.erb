@@ -1,5 +1,7 @@
 <h3>Select your delivery address</h3>
 <% current_user.addresses.each do |address| %>
-  <%= label_tag "address_id_#{address.id}", address.address %>
+  <%= label_tag "address_id_#{address.id}", address.title %>
   <%= radio_button_tag :address_id, address.id %>
 <% end %>
+<br>
+<%= link_to t('Manage addresses'), addresses_path %>

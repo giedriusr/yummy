@@ -11,9 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324220240) do
+ActiveRecord::Schema.define(:version => 20120429200820) do
 
   create_table "addresses", :force => true do |t|
+    t.string   "title",        :limit => 50
     t.integer  "customer_id"
     t.string   "address"
     t.string   "post_code"
@@ -21,8 +22,8 @@ ActiveRecord::Schema.define(:version => 20120324220240) do
     t.string   "country_code"
     t.float    "longitude"
     t.float    "latitude"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "cart_items", :force => true do |t|

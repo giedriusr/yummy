@@ -12,6 +12,7 @@
         <% if current_user %>
           <li><%= link_to t('Account'), account_path %></li>
           <li><%= link_to t('Profile'), profile_path %></li>
+          <li><%= link_to t('Cart'), cart_path %></li>
           <li>
             <%= link_to t('Log Out'), logout_path %>
           </li>

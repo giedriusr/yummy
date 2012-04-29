@@ -4,6 +4,7 @@ checkout page you will be able to select which address you want to use for food 
 <br>
 <table>
   <tr>
+	<th>Title</th>
     <th>Address</th>
     <th>Post Code</th>
     <th>City</th>
@@ -14,6 +15,7 @@ checkout page you will be able to select which address you want to use for food 
 
 <% @addresses.each do |address| %>
   <tr>
+	<td><%= address.title %></td>
     <td><%= address.address %></td>
     <td><%= address.post_code %></td>
     <td><%= address.city %></td>

@@ -12,7 +12,7 @@ class AddressesController < ApplicationController
   def create
     @address = current_user.addresses.build(params[:address])
     if @address.save
-      redirect_to address_path, :notice => 'Created!'
+      redirect_to cart_path, :notice => 'Created!'
     else
       render 'new'
     end
