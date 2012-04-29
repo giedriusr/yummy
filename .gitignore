@@ -14,3 +14,6 @@ config/database.yml
 /log/*.log
 /tmp
 .idea
+
+# text editor / IDE files
+yummy.tmproj
