@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(:version => 20120429200820) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "title",        :limit => 50
     t.integer  "customer_id"
     t.string   "address"
-    t.string   "post_code"
     t.string   "city"
     t.string   "country_code"
-    t.float    "longitude"
-    t.float    "latitude"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "post_code"
+    t.string   "title",        :limit => 50
   end
 
   create_table "cart_items", :force => true do |t|
@@ -75,19 +75,19 @@ ActiveRecord::Schema.define(:version => 20120429200820) do
   end
 
   create_table "ingredients", :force => true do |t|
-    t.integer  "provider_id"
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "provider_id"
   end
 
   create_table "items", :force => true do |t|
-    t.integer  "provider_id"
     t.string   "name"
     t.float    "price"
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "provider_id"
   end
 
   create_table "menus", :force => true do |t|
@@ -102,16 +102,16 @@ ActiveRecord::Schema.define(:version => 20120429200820) do
     t.string   "name"
     t.string   "description"
     t.string   "address"
-    t.string   "post_code"
     t.string   "city"
     t.string   "country_code"
     t.string   "phone"
     t.string   "email"
-    t.float    "longitude"
-    t.float    "latitude"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "provider_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "post_code"
   end
 
   create_table "order_item_ingredients", :force => true do |t|
@@ -144,9 +144,9 @@ ActiveRecord::Schema.define(:version => 20120429200820) do
     t.string   "name"
     t.string   "phone"
     t.string   "email"
-    t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
     t.string   "slug"
   end
 

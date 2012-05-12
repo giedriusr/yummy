@@ -1,5 +1,33 @@
-<%= form_tag(search_results_path, :method => :get) do %>
-	<%= search_field_tag 'search[query]', @search.query, :class => 'span5', :placeholder => 'i.e. pizza, salads, cola', :autocomplete => :off %>
-	<br>
-	<%= submit_tag 'Find Restaurants', :class => 'btn btn-primary btn-large', :name => nil, :disable_with => 'Please wait..' %>
-<% end %>
+<div class="search-bar">
+	<div class="container">
+		<div class="row">
+		<%= form_tag(search_results_path, :method => :get) do %>
+
+			<label for="" class="span4">
+				<strong>Location</strong>
+				<input type="text" name="" id="" class="location">
+				<p class="help-block small">Enter City, Area or Street Address</p>
+			</label>
+
+			<label for="" class="span4">
+				<strong>What would you like?</strong>
+				<%= search_field_tag 'search[query]', @search.query, :class => 'food', :placeholder => 'i.e. pizza, salads, cola', :autocomplete => :off %>
+				<p class="help-block small">Use commas for multiple search i.e. Pizza, Salads, etc.</p>
+			</label>
+
+			<label class="span2">
+				<strong>Delivery or Pickup?</strong>
+				<select class="span2">
+					<option>Delivery</option>
+					<option>Pickup</option>
+				</select>
+			</label>
+
+			<div class="span2">		
+				<br>		
+				<%= submit_tag 'Search', :class => 'btn btn-primary btn-large span2', :name => nil, :disable_with => 'Please wait..' %>
+			</div>
+		<% end %>
+		</div>
+	</div>
+</div>

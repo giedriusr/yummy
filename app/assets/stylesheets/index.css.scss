@@ -21,6 +21,10 @@ body {
   background: url("/assets/bg-body.gif");
 }
 
+.small {
+  font-size: 11px;
+}
+
 // Homepage Billboard (Hero Unit)
 #billboard {
   padding: 60px 0;
@@ -114,5 +118,53 @@ body {
     font-weight: bold;
     float: right;
     color: $green
+  }
+}
+
+
+// Global Search Bar
+.search-bar {
+  background: white;
+  padding: 18px 0 10px;
+  margin-bottom: 20px;
+  @include box-shadow(0 1px 3px rgba(0,0,0,.05));
+
+  input[type=text],
+  input[type=search],
+  select {
+    margin-bottom: 0;
+    @include box-sizing(border-box);
+    width: 100%;
+    height: 38px;
+    font-size: 15px;
+    padding-left: 8px;
+  }
+
+  select {
+    background: white;
+  }
+}
+
+input.location {
+  background: url(/assets/icons/geo.png) no-repeat 8px center;
+  padding-left: 25px !important;
+}
+input.food {
+  background: url(/assets/icons/pacman.png) no-repeat 8px center;
+  padding-left: 25px !important;
+}
+
+
+// Results
+.restaurant.result {
+  background: white;
+  @include box-shadow(0 1px 3px rgba(0,0,0,.05));
+  @include border-radius(4px);
+  margin-top  : 20px;
+  padding: 20px;
+
+  > h2 {
+    font-size: 15px;
+    text-transform: capitalize;
   }
 }
