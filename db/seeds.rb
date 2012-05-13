@@ -28,6 +28,8 @@ truncate('cart_items')
 truncate('order_items')
 truncate('orders')
 truncate('order_item_ingredients')
+truncate('cuisines')
+truncate('provider_cuisines')
 
 # seeding with dummy data
 # with ID's it doesn't work :(
@@ -271,3 +273,16 @@ Employee.create([
   { first_name: 'Employee', last_name: 'Employeeee', email: 'employee@fakeemail.com', password: '123456'},
   { first_name: 'Admin', last_name: 'Demo', email: 'employee2@fakeemail.com', password: '123456'}
 ])
+
+# cuisines
+Cuisine.create([
+      { name: 'American'},
+      { name: 'Bangladeshi'},
+      { name: 'Chinese'},
+      { name: 'English'},
+      { name: 'Indian'},
+      { name: 'Italian'},
+      { name: 'Japanese'},
+      { name: 'Pizza'},
+      { name: 'Thai'}
+      ])

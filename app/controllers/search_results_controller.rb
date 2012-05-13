@@ -9,6 +9,7 @@ class SearchResultsController < ApplicationController
       @geo = @geo_location.geometry['location']
       @providers = Provider.joins(:items).where('items.name LIKE ?', "%#{@search.query}%").uniq
       @offices = Office.valid_offices(@providers, [@geo['lat'], @geo['lng']])
+      @cuisines = Cuisine.order(:created_at)
     else
       render 'index/index'
     end

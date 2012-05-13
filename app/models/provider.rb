@@ -25,6 +25,8 @@ class Provider < ActiveRecord::Base
   has_many :menus
   has_many :items
   has_many :ingredients
+  has_many :provider_cuisines
+  has_many :cuisines, :through => :provider_cuisines
 
   def should_generate_new_friendly_id?
     new_record?

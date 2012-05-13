@@ -1,6 +1,16 @@
 <h1>Search results</h1>
 
 <div class="restaurant result">
+  <h3>Pick a cuisine</h3>
+  <%= link_to t('All'), search_results_path('search[query]' => @search.query,
+    'search[address]' => @search.address) %>
+  <% @cuisines.each do |cuisine| %>
+    <%= link_to cuisine.name,
+    search_results_path('search[query]' => @search.query,
+    'search[address]' => @search.address, :cuisine => cuisine.id) %>
+  <% end %>
+  <hr>
+
   <% @offices.each_with_index do |office, key| %>
     <% provider = office.provider %>
     <h2><%= link_to office.name, place_path(provider, :q => @search.query) %></h2>
@@ -8,12 +18,12 @@
     <%= t 'Delivery' %>: <%= number_to_currency(rand(8)) %><br>
     <%= t 'Minimum' %>: <%= number_to_currency(0) %><br>
     <br>
-	<% end %>
-	<%= link_to 'See all places', places_path %>
+  <% end %>
+  <%= link_to 'See all places', places_path %>
 </div>
 
 <div>
-    <%= render 'map' %>
+  <%= render 'map' %>
 </div>
 
 <br>
