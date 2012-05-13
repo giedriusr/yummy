@@ -10,5 +10,5 @@ class Search
 
   attr_accessible :query, :address, :longitude, :latitude, :post_code, :country_code
 
-  validates :query, :presence => true
+  validates :query, :address, :presence => true
 end

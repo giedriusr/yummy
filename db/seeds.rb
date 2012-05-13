@@ -55,6 +55,19 @@ domino.offices.create(:address => '7 KAPNIKAREAS', :city => 'Athens',
                         :country_code => 'GR', :phone => '302103222706',
                         :email => 'domino4@fakeemail.gr', :post_code => '10556',
                         :description => 'office description', :name => 'domino 4th office')
+domino.offices.create(:address => 'Psakoudia, Sithonia, Halkidiki', :city => 'Thessaloniki',
+                        :country_code => 'GR', :phone => '302103222706',
+                        :email => 'domino5@fakeemail.gr', :post_code => '63071',
+                        :description => 'office description', :name => 'domino 5th office')
+domino.offices.create(:address => 'Ermou 57', :city => 'Thessaloniki',
+                        :country_code => 'GR', :phone => '302103222706',
+                        :email => 'domino6@fakeemail.gr', :post_code => '54623',
+                        :description => 'office description', :name => 'domino 6th office')
+domino.offices.create(:address => 'Analipseos 26', :city => 'Thessaloniki',
+                        :country_code => 'GR', :phone => '302103222706',
+                        :email => 'domino7@fakeemail.gr', :post_code => '55236',
+                        :description => 'office description', :name => 'domino 7th office')
+
 # 1-7
 domino.menus.create(:name => 'Pizzas', :photo => 'pizza.jpg')
 domino.menus.create(:name => 'Breadbowl Pasta', :photo => 'pasta.jpg')

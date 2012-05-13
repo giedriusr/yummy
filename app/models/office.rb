@@ -17,9 +17,9 @@ class Office < ActiveRecord::Base
 
   belongs_to :provider
 
-  def self.valid_offices(providers, ip)
+  def self.valid_offices(providers, geo_data)
     valid_offices = []
-    near_offices = self.near(ip, 10)
+    near_offices = self.near(geo_data, 10)
 
     providers.each do |provider|
       poffices = provider.offices

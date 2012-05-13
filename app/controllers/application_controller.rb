@@ -1,13 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_locale, :prepare_for_mobile
+  before_filter :set_locale, :prepare_for_mobile, :get_search
 
   def set_locale
     # available_locales = [:en, :el]
     session[:locale] = params[:locale] if params[:locale]
     session[:locale] = I18n.default_locale unless session[:locale]
     I18n.locale = session[:locale]
+  end
+
+  def get_search
+    if session[:search].present?
+      @search = session[:search]
+    else
+      @search = Search.new
+    end
   end
 
   private

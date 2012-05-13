@@ -4,9 +4,9 @@
 		<%= form_tag(search_results_path, :method => :get) do %>
 
 			<label for="" class="span4">
-				<strong>Location</strong>
-				<input type="text" name="" id="" class="location">
-				<p class="help-block small">Enter City, Area or Street Address</p>
+				<strong><%= t 'Location' %></strong>
+				<%= search_field_tag 'search[address]', @search.address, :class => 'location', :autocomplete => :off %>
+				<p class="help-block small"><%= t 'Enter City, Area or Street Address' %></p>
 			</label>
 
 			<label for="" class="span4">
@@ -23,8 +23,8 @@
 				</select>
 			</label>
 
-			<div class="span2">		
-				<br>		
+			<div class="span2">
+				<br>
 				<%= submit_tag 'Search', :class => 'btn btn-primary btn-large span2', :name => nil, :disable_with => 'Please wait..' %>
 			</div>
 		<% end %>

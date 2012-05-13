@@ -2,12 +2,13 @@ class SearchResultsController < ApplicationController
   before_filter :initialize_cart, :set_ip
 
   def index
-    @geo_location = Geocoder.search(@ip).first # request.ip
-
     @search = Search.new(params[:search])
     if @search.valid?
+      session[:search] = @search
+      @geo_location = Geocoder.search(@search.address).first
+      @geo = @geo_location.geometry['location']
       @providers = Provider.joins(:items).where('items.name LIKE ?', "%#{@search.query}%").uniq
-      @offices = Office.valid_offices(@providers, @geo_location.ip)
+      @offices = Office.valid_offices(@providers, [@geo['lat'], @geo['lng']])
     else
       render 'index/index'
     end
