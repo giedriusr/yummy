@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.3'
 gem 'mysql2'
 gem 'capistrano'
+gem 'rvm-capistrano'
 gem 'therubyracer'
 gem 'execjs'
 gem 'gravatar_image_tag', '1.0.0'
@@ -31,7 +32,6 @@ end
 
 group :development do
   gem 'faker'
-  gem 'libnotify'
   gem 'ruby-prof'
   gem 'rb-fsevent'
   gem 'growl'
